@@ -257,7 +257,7 @@ header
 }
 
 .header-area {
-  background-image: url(../images/header-bg.png);
+  background: #0b3d2e !important; /* solid luxury green */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -663,6 +663,23 @@ header
   }
 }
 
+.background-header {
+    background: #0b3d2e !important; /* solid luxury green */
+}
+
+.header-area .main-nav .nav li a {
+    color: #d4af37 !important;
+    transition: 0.3s ease;
+}
+
+.header-area .main-nav .nav li a:hover {
+    color: #ffd700 !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.header-area .main-nav .nav li a.active {
+    color: #ffd700 !important;
+}
 
 /* 
 ---------------------------------------------
