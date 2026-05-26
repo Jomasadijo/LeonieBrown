@@ -497,7 +497,7 @@ allowfullscreen="">
 
 <!-- Contact Form -->
 <div class="col-lg-4">
-  <form id="contact" action="" method="post">
+  <form id="contact">
 
     <div class="row">
 
@@ -514,41 +514,26 @@ allowfullscreen="">
 
       <div class="col-lg-12">
         <fieldset>
-          <input type="name" 
-          name="name" 
-          id="name" 
-          placeholder="Full Name" 
-          autocomplete="on" 
-          required>
+          <input type="text" name="name" id="name" placeholder="Full Name" required>
         </fieldset>
       </div>
 
       <div class="col-lg-12">
         <fieldset>
-          <input type="text" 
-          name="email" 
-          id="email" 
-          pattern="[^ @]*@[^ @]*" 
-          placeholder="Your Email Address" 
-          required="">
+          <input type="email" name="email" id="email" placeholder="Your Email Address" required>
         </fieldset>
       </div>
 
       <div class="col-lg-12">
         <fieldset>
-          <textarea 
-          name="message" 
-          id="message" 
-          placeholder="Tell us how we can support your growth journey"></textarea>
+          <textarea name="message" id="message" placeholder="Tell us how we can support your growth journey" required></textarea>
         </fieldset>
       </div>
 
       <div class="col-lg-12">
         <fieldset>
-          <button type="submit" 
-          id="form-submit" 
-          class="main-gradient-button">
-          Send Message
+          <button type="submit" id="form-submit" class="main-gradient-button">
+            Send Message
           </button>
         </fieldset>
       </div>
@@ -560,11 +545,35 @@ allowfullscreen="">
 <!-- Social Icons -->
 <div class="col-lg-12">
   <ul class="social-icons">
-    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+    <!-- Facebook -->
+    <li>
+      <a href="https://www.facebook.com/share/1HjqwGd4fP/?mibextid=wwXIfr" target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+
+    <!-- Instagram -->
+    <li>
+      <a href="https://share.google/suhHekVQ51m1lTBSU" target="_blank">
+        <i class="fa fa-instagram"></i>
+      </a>
+    </li>
+
+    <!-- YouTube -->
+    <li>
+      <a href="https://share.google/aqJVCvYwI15ghDVH5" target="_blank">
+        <i class="fa fa-youtube"></i>
+      </a>
+    </li>
+
+    <!-- Twitter / X -->
+    <li>
+      <a href="https://share.google/ngGg0nLuw0b45uj2F" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+
   </ul>
 </div>
 
@@ -639,6 +648,38 @@ allowfullscreen="">
           checkSection();
         });
     </script>
+  
+<script>
+  document.getElementById("contact").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Your WhatsApp number (remove + and spaces)
+    const phoneNumber = "447711114290";
+
+    const whatsappMessage =
+      `Hello Leonie Brown Coaching Academy,%0A%0A` +
+      `Full Name: ${name}%0A` +
+      `Email: ${email}%0A` +
+      `Message: ${message}%0A%0A` +
+      `Please respond when available.`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Success popup
+    alert("Your message is ready on WhatsApp. Please press send inside WhatsApp to complete.");
+
+    // Reset form
+    document.getElementById("contact").reset();
+  });
+</script>
+
 </body>
 
 </html>

@@ -333,6 +333,35 @@ allowfullscreen="">
           checkSection();
         });
     </script>
+<script>
+  document.getElementById("contact").addEventListener("submit", function (e) {
+    e.preventDefault();
 
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Your WhatsApp number (remove + and spaces)
+    const phoneNumber = "447711114290";
+
+    const whatsappMessage =
+      `Hello Leonie Brown Coaching Academy,%0A%0A` +
+      `Full Name: ${name}%0A` +
+      `Email: ${email}%0A` +
+      `Message: ${message}%0A%0A` +
+      `Please respond when available.`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+    // Open WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Success popup
+    alert("Your message is ready on WhatsApp. Please press send inside WhatsApp to complete.");
+
+    // Reset form
+    document.getElementById("contact").reset();
+  });
+</script>
 </body>
 </html>
