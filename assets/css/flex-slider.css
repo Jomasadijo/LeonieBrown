@@ -269,13 +269,34 @@ html[xmlns] .flexslider .slides {
 /* ====================================================================================================================
  * RESPONSIVE
  * ====================================================================================================================*/
+.background-header,
+.header-area,
+.header-sticky,
+.header-area.header-sticky,
+.header-area .main-nav {
+  background: #0b3d2e !important;
+  background-image: none !important;
+}
+
 @media screen and (max-width: 860px) {
+
+  .background-header,
+  .header-area,
+  .header-sticky,
+  .header-area.header-sticky,
+  .header-area .main-nav {
+    background: #0b3d2e !important;
+    background-image: none !important;
+  }
+
   .flex-direction-nav .flex-prev {
     opacity: 1;
     left: 10px;
   }
+
   .flex-direction-nav .flex-next {
     opacity: 1;
     right: 10px;
   }
+
 }

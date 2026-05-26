@@ -125,12 +125,12 @@ body {
 }
 
 ::selection {
-  background: #dc8cdb;
+  background: #0b3d2e;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #dc8cdb;
+  background: #0b3d2e;
   color: #fff;
 }
 
@@ -171,7 +171,7 @@ body {
 
 .white-button a {
   font-size: 13px;
-  color: #dc8cdb;
+  color: #0b3d2e;
   background-color: #fff;
   padding: 12px 30px;
   display: inline-block;
@@ -188,7 +188,7 @@ body {
 .text-button a {
   font-size: 14px;
   font-weight: 500;
-  color: #dc8cdb;
+  color: #0b3d2e;
   text-decoration: underline !important;
   transition: all .3s;
 }
@@ -232,7 +232,7 @@ section {
 
 .section-heading h4 em {
   font-style: normal;
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 .section-heading p {
@@ -748,7 +748,7 @@ section.main-banner {
 
 .main-banner .header-text h2 em {
   font-style: normal;
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 .main-banner .main-button-gradient {
@@ -801,7 +801,7 @@ services
 }
 
 .services .owl-dots .active {
-  background-color: #dc8cdb;
+  background-color: #0b3d2e;
 }
 
 /*
@@ -1069,7 +1069,7 @@ section.testimonials:after {
 .testimonials .item span {
   font-size: 13px;
   font-weight: 700;
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 .testimonials .item img {
@@ -1094,7 +1094,7 @@ section.testimonials:after {
 }
 
 .testimonials .owl-dots .active {
-  background-color: #dc8cdb;
+  background-color: #0b3d2e;
 }
 
 
@@ -1246,13 +1246,13 @@ section.contact-us ul.social-icons li a {
   text-align: center;
   line-height: 44px;
   background-color: #fff;
-  color: #dc8cdb;
+  color: #0b3d2e;
   border-radius: 50%;
   transition: all .5s;
 }
 
 section.contact-us ul.social-icons li a:hover {
-  background-color: #dc8cdb;
+  background-color: #0b3d2e;
   color: #fff;
 }
 
@@ -1413,13 +1413,13 @@ section.our-team .naccs .menu div h4 {
 section.our-team .naccs .menu div span {
   font-size: 12px;
   text-transform: uppercase;
-  color: #dc8cdb;
+  color: #0b3d2e;
   font-weight: 700;
   display: block;
 }
 
 section.our-team .naccs .menu div.active h4 {
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 section.our-team ul.nacc {
@@ -1485,7 +1485,7 @@ section.our-team ul.nacc li .left-content span a {
 }
 
 section.our-team ul.nacc li .left-content span a:hover {
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 section.our-team ul.nacc li .left-content .last-span a {
@@ -1711,7 +1711,7 @@ section.more-info .count-area-content .count-digit {
   height: 80px;
   line-height: 80px;
   font-size: 28px;
-  color: #dc8cdb;
+  color: #0b3d2e;
   font-weight: 900;
   margin-bottom: -40px;
   position: relative;
@@ -1759,16 +1759,22 @@ body {
 }
 
 @media (max-width: 1200px) {
+
   .main-banner .right-image {
     margin-left: 60px;
   }
+
   .main-banner .header-text h2 {
     font-size: 62px;
   }
+
   .header-area {
-    background: rgb(219,138,222) !important;
-    background: linear-gradient(-145deg, rgba(219,138,222,1) 0%, rgba(246,191,159,1) 100%) !important;
+    background: #0b3d2e !important;
+    background-color: #0b3d2e !important;
+    background-image: none !important;
   }
+
+}
   .services .owl-nav .owl-next{
     right: -70px;
   }
@@ -1909,7 +1915,7 @@ body {
     margin: 0px 5px;
   }
   section.our-team .naccs .menu div.active img {
-    border: 3px solid #dc8cdb;
+    border: 3px solid #0b3d2e;
   }
   section.our-team .naccs .menu div h4,
   section.our-team .naccs .menu div span {
