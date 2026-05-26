@@ -404,7 +404,7 @@ header
 
 .header-area .main-nav .nav li.has-sub ul li a:hover {
   background: #fff;
-  color: #dc8cdb!important;
+  color: #0b3d2e!important;
   padding-left: 25px;
 }
 
@@ -544,7 +544,7 @@ header
 }
 
 .header-area.header-sticky .nav li a.active {
-  color: #dc8cdb;
+  color: #0b3d2e;
 }
 
 @media (max-width: 1200px) {
@@ -563,7 +563,7 @@ header
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #dc8cdb!important;
+    color: #0b3d2e!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -621,7 +621,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #dc8cdb!important;
+    color: #0b3d2e!important;
   }
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     position: relative;
