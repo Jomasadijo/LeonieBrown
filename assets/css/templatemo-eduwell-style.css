@@ -860,7 +860,7 @@ section.our-courses .naccs .menu div {
 }
 
 section.our-courses .naccs .menu div.active {
-  color: #dc8cdb;
+  color: #0b3d2e;
   border: 3px solid rgba(219,138,222,1);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
 }
@@ -1157,7 +1157,7 @@ section.contact-us .contact-info h4 {
 
 section.contact-us .contact-info span {
   font-size: 15px;
-  color: #dc8cdb;
+  color: #0b3d2e;
   font-weight: 700;
 }
 
