@@ -324,7 +324,7 @@ header
 .header-area .main-nav .nav li a {
   display: block;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   text-transform: capitalize;
   color: #fff;
   -webkit-transition: all 0.3s ease 0s;
