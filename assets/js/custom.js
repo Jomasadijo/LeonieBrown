@@ -311,26 +311,62 @@
 
     $(window).scroll(function() {
 
-        if (visible($('.count-digit'))) {
-            if ($('.count-digit').hasClass('counter-loaded')) return;
-            $('.count-digit').addClass('counter-loaded');
+    if (visible($('.count-digit'))) {
 
-            $('.count-digit').each(function() {
-                var $this = $(this);
-                jQuery({
-                    Counter: 0
-                }).animate({
-                    Counter: $this.text()
-                }, {
-                    duration: 3000,
-                    easing: 'swing',
-                    step: function() {
-                        $this.text(Math.ceil(this.Counter));
+        if ($('.count-digit').hasClass('counter-loaded')) return;
+
+        $('.count-digit').addClass('counter-loaded');
+
+        $('.count-digit').each(function() {
+
+            var $this = $(this);
+
+            // Get original text
+            var originalText = $this.text().trim();
+
+            // Check if it contains a plus sign
+            var hasPlus = originalText.indexOf('+') !== -1;
+
+            // Extract numeric value only
+            var countTo = parseInt(originalText.replace(/[^0-9]/g, ''));
+
+            jQuery({
+                Counter: 0
+            }).animate({
+                Counter: countTo
+            }, {
+                duration: 3000,
+                easing: 'swing',
+
+                step: function() {
+
+                    var value = Math.ceil(this.Counter).toLocaleString();
+
+                    if (hasPlus) {
+                        value += '+';
                     }
-                });
+
+                    $this.text(value);
+                },
+
+                complete: function() {
+
+                    var value = countTo.toLocaleString();
+
+                    if (hasPlus) {
+                        value += '+';
+                    }
+
+                    $this.text(value);
+                }
+
             });
-        }
-    })
+
+        });
+
+    }
+
+});
 
 
 })(window.jQuery);
