@@ -574,116 +574,154 @@ header
   }
 }
 
-
-
-/* ==========================================
-   MOBILE HEADER (LOGO TOP, MENU BELOW)
-========================================== */
-
 /* ==========================================
    MOBILE HEADER (INLINE AMAZON STYLE)
 ========================================== */
 
-@media (max-width:767px){
+@media (max-width: 767px) {
+  /* 1. Base Header Adjustments */
+  .header-area {
+    background-color: #0b3d2e !important; /* Forces the signature deep green banner */
+    padding: 0px 10px !important;
+    height: 70px !important; /* Sleeker height to maximize vertical workspace */
+    box-shadow: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
 
-/* Header */
-.header-area{
-    background:#0b3d2e !important;
-    height:70px !important;
-    padding:0 10px !important;
-    display:flex;
-    align-items:center;
+  .header-area .container {
+    padding: 0px;
+    width: 100%;
+  }
+
+  /* 2. Main Navigation Wrapper Setup */
+  .header-area .main-nav {
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* 3. Logo Placement Fixed Left */
+  .header-area .logo {
+    margin-left: 5px !important;
+    flex-shrink: 0;
+  }
+  
+  .header-area .main-nav .logo {
+    color: #ffffff !important;
+  }
+
+  /* 4. Inline Mobile Navigation Bar (The Desktop Simulation) */
+  .header-area .main-nav .nav {
+    display: flex !important; /* Force items to sit side-by-side */
+    flex-direction: row !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 auto !important; /* Perfectly centers links between logo and 3 dots */
+    padding: 0 !important;
+    gap: 6px !important; /* Keeps links tightly grouped together */
+    list-style: none;
+    align-items: center;
+  }
+
+  /* Clear out top borders from old vertical code */
+  .header-area .main-nav .nav li:first-child {
+    border-top: none !important;
+  }
+
+  .header-area.header-sticky .nav {
+    margin-top: 0px !important;
+  }
+
+  /* 5. Compressing Individual Nav Links */
+  .header-area .main-nav .nav li {
+    width: auto !important;
+    background: transparent !important; /* No white block overlays */
+    border-bottom: none !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .header-area .main-nav .nav li a {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 4px 2px !important; /* Compressed tight clickable area */
+    border: none !important;
+    background: transparent !important;
+    color: #e5c158 !important; /* Sleek premium gold tint matching your branding */
+    font-size: 10px !important; /* Scaled text down perfectly to guarantee fitment */
+    font-weight: 600 !important;
+    text-transform: capitalize;
+    white-space: nowrap; /* Prevents long labels from splitting across lines */
+  }
+
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+    background: transparent !important;
+    color: #ffffff !important; /* Switches cleanly to crisp white on interactions */
+  }
+
+  /* 6. Pure CSS Vertical 3-Dot Icon Integration */
+  .header-area .menu-trigger {
+    display: block !important;
+    position: relative;
+    width: 20px !important;
+    height: 25px !important;
+    background: transparent !important;
+    margin-right: 5px !important;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* Remove default lines if they are span-based tags */
+  .header-area .menu-trigger span {
+    display: none !important;
+  }
+
+  /* Constructing the three modern circular dots */
+  .header-area .menu-trigger::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    /* Double box-shadow produces the middle and lower dots perfectly aligned */
+    box-shadow: 0 7px 0 #ffffff, 0 14px 0 #ffffff;
+  }
+
+/* Mobile Pages dropdown */
+
+.header-area .main-nav .nav li.has-sub {
+    position: relative;
 }
-
-.header-area .container{
-    width:100%;
-    padding:0;
-}
-
-/* Navigation */
-.header-area .main-nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    width:100%;
-}
-
-/* Logo */
-.header-area .logo{
-    margin-left:5px !important;
-    flex-shrink:0;
-}
-
-.header-area .logo img{
-    height:48px;
-    width:auto;
-}
-
-/* Menu */
-.header-area .main-nav .nav{
-    display:flex !important;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    flex:1;
-    margin:0 8px;
-    padding:0;
-    gap:5px;
-    list-style:none;
-}
-
-/* Menu Items */
-
-.header-area .main-nav .nav li{
-    position:relative;
-    padding:0 !important;
-    margin:0 !important;
-    width:auto !important;
-    background:none !important;
-    border:none !important;
-}
-
-.header-area .main-nav .nav li a{
-    display:block;
-    padding:4px 3px !important;
-    font-size:10px !important;
-    font-weight:600;
-    color:#e5c158 !important;
-    background:none !important;
-    white-space:nowrap;
-    line-height:1.2;
-}
-
-.header-area .main-nav .nav li a:hover,
-.header-area .main-nav .nav li a.active{
-    color:#fff !important;
-}
-
-/* Pages Arrow */
 
 .header-area .main-nav .nav li.has-sub:after{
-    content:"▼";
-    font-size:7px;
-    color:#e5c158;
-    position:absolute;
-    right:-8px;
-    top:8px;
+    content: "▼";
+    color:#ffffff;
+    font-size:8px;
+    margin-left:2px;
 }
-
-/* Dropdown */
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu{
     display:none;
     position:absolute;
-    top:28px;
-    left:50%;
-    transform:translateX(-50%);
-    width:150px;
-    background:#fff;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    top:24px;
+    left:0;
+    min-width:140px;
+    background:#0b3d2e;
+    border-radius:6px;
     z-index:9999;
+    padding:5px 0;
+}
+
+.header-area .main-nav .nav li.has-sub.open ul.sub-menu{
+    display:block;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li{
@@ -691,62 +729,18 @@ header
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li a{
-    color:#0b3d2e !important;
-    font-size:12px !important;
-    padding:10px 15px !important;
-    background:#fff !important;
+    color:#ffffff !important;
+    font-size:10px !important;
+    padding:6px 10px !important;
     display:block;
+    background:transparent !important;
 }
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover{
-    background:#f4f4f4 !important;
+    color:#ffd700 !important;
+}
 }
 
-/* Show dropdown when active */
-
-.header-area .main-nav .nav li.has-sub.open ul.sub-menu{
-    display:block;
-}
-
-/* Three Dot Button */
-
-.header-area .menu-trigger{
-    display:block !important;
-    position:relative;
-    width:24px;
-    height:24px;
-    margin-right:3px;
-    cursor:pointer;
-}
-
-.header-area .menu-trigger span{
-    display:none !important;
-}
-
-.header-area .menu-trigger::before{
-    content:"";
-    position:absolute;
-    right:5px;
-    top:2px;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:#fff;
-    box-shadow:
-        0 8px 0 #fff,
-        0 16px 0 #fff;
-}
-
-/* Active */
-
-.header-area .menu-trigger.active::before{
-    background:#ffd700;
-    box-shadow:
-        0 8px 0 #ffd700,
-        0 16px 0 #ffd700;
-}
-
-}
 
 /* 
 ---------------------------------------------
