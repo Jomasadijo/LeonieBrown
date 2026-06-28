@@ -78,14 +78,14 @@ https://templatemo.com/tm-573-eduwell
                       <li class="scroll-to-section"><a href="#services">Services</a></li>
                       <li class="scroll-to-section"><a href="#courses">Courses</a></li>
 
-                      <li class="has-sub">
-                          <a href="javascript:void(0)">Pages</a>
-                          <ul class="sub-menu">
-                              <li><a href="about-us.html">About Us</a></li>
-                              <li><a href="our-services.html">Our Services</a></li>
-                              <li><a href="contact-us.html">Contact Info</a></li>
-                          </ul>
-                      </li>
+                 <li class="has-sub" id="mobile-submenu-trigger">
+                     <a href="javascript:void(0)" class="pages-link">Pages</a>
+                     <ul class="sub-menu">
+                     <li><a href="about-us.html">About Us</a></li>
+                     <li><a href="our-services.html">Our Services</a></li>
+                     <li><a href="contact-us.html">Contact Info</a></li>
+                  </ul>
+                </li>
 
                       <li class="scroll-to-section"><a href="#testimonials">Testimonials</a></li>
                       <li class="scroll-to-section"><a href="#contact-section">Contact Us</a></li>
@@ -876,7 +876,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const trigger = document.getElementById("mobile-submenu-trigger");
+        
+        if (trigger) {
+            trigger.addEventListener("click", function (event) {
+                // Determine if the user is tapping a deep link options item
+                const isSubLink = event.target.closest(".sub-menu a");
+                
+                if (!isSubLink) {
+                    // Prevent default anchor processing behavior
+                    event.preventDefault();
+                    // Stop event from closing instantly
+                    event.stopPropagation(); 
+                    // Toggle visibility open state wrapper class
+                    this.classList.toggle("open");
+                }
+            });
+        }
 
+        // Close the sub-menu if a user taps anywhere else on the screen
+        document.addEventListener("click", function (event) {
+            if (trigger && !trigger.contains(event.target)) {
+                trigger.classList.remove("open");
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
