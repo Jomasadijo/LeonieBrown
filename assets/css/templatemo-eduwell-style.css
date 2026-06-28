@@ -581,175 +581,132 @@ header
 ========================================== */
 
 @media (max-width: 767px) {
-
-  /* Green Header */
-
-  .header-area,
-  .background-header{
-      background:#0b3d2e !important;
-      height:110px !important;
-      padding:0;
+  /* 1. Base Header Adjustments */
+  .header-area {
+    background-color: #0b3d2e !important; /* Forces the signature deep green banner */
+    padding: 0px 10px !important;
+    height: 70px !important; /* Sleeker height to maximize vertical workspace */
+    box-shadow: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
   }
 
-  /* Container */
-
-  .header-area .container{
-      width:100%;
-      max-width:100%;
-      padding:0;
+  .header-area .container {
+    padding: 0px;
+    width: 100%;
   }
 
-  /* Navigation Layout */
-
-  .header-area .main-nav{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      min-height:110px;
+  /* 2. Main Navigation Wrapper Setup */
+  .header-area .main-nav {
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
-  /* Logo */
-
-  .header-area .main-nav .logo{
-      line-height:normal;
-      margin-top:8px;
-      margin-bottom:6px;
-      text-align:center;
+  /* 3. Logo Placement Fixed Left */
+  .header-area .logo {
+    margin-left: 5px !important;
+    flex-shrink: 0;
+  }
+  
+  .header-area .main-nav .logo {
+    color: #ffffff !important;
   }
 
-  .header-area .main-nav .logo img{
-      width:120px;
-      height:auto;
+  /* 4. Inline Mobile Navigation Bar (The Desktop Simulation) */
+  .header-area .main-nav .nav {
+    display: flex !important; /* Force items to sit side-by-side */
+    flex-direction: row !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 auto !important; /* Perfectly centers links between logo and 3 dots */
+    padding: 0 !important;
+    gap: 6px !important; /* Keeps links tightly grouped together */
+    list-style: none;
+    align-items: center;
   }
 
-  /* Hide Hamburger */
-
-  .header-area .menu-trigger{
-      display:none !important;
+  /* Clear out top borders from old vertical code */
+  .header-area .main-nav .nav li:first-child {
+    border-top: none !important;
   }
 
-  /* Navigation */
-
-  .header-area .main-nav .nav{
-
-      display:flex !important;
-
-      flex-direction:row;
-
-      justify-content:center;
-
-      align-items:center;
-
-      flex-wrap:nowrap;
-
-      width:100%;
-
-      margin:0;
-
-      padding:0 6px;
-
-      background:transparent;
-
-      overflow:hidden;
-
+  .header-area.header-sticky .nav {
+    margin-top: 0px !important;
   }
 
-  .header-area .main-nav .nav li{
-
-      display:inline-block;
-
-      padding:0 4px !important;
-
-      margin:0;
-
-      width:auto;
-
-      border:none;
-
-      background:transparent;
-
+  /* 5. Compressing Individual Nav Links */
+  .header-area .main-nav .nav li {
+    width: auto !important;
+    background: transparent !important; /* No white block overlays */
+    border-bottom: none !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
-  .header-area .main-nav .nav li:first-child{
-      border:none;
-  }
-
-  .header-area .main-nav .nav li a{
-
-      background:none !important;
-
-      color:#d4af37 !important;
-
-      font-size:10px;
-
-      font-weight:600;
-
-      letter-spacing:0;
-
-      line-height:28px !important;
-
-      height:28px !important;
-
-      padding:0 2px !important;
-
-      white-space:nowrap;
-
-      text-transform:capitalize;
-
+  .header-area .main-nav .nav li a {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 4px 2px !important; /* Compressed tight clickable area */
+    border: none !important;
+    background: transparent !important;
+    color: #e5c158 !important; /* Sleek premium gold tint matching your branding */
+    font-size: 10px !important; /* Scaled text down perfectly to guarantee fitment */
+    font-weight: 600 !important;
+    text-transform: capitalize;
+    white-space: nowrap; /* Prevents long labels from splitting across lines */
   }
 
   .header-area .main-nav .nav li a:hover,
-  .header-area .main-nav .nav li a.active{
-
-      color:#ffd700 !important;
-
+  .header-area .main-nav .nav li a.active {
+    background: transparent !important;
+    color: #ffffff !important; /* Switches cleanly to crisp white on interactions */
   }
 
-  /* Pages Dropdown */
-
-  .header-area .main-nav .nav li.has-sub ul.sub-menu{
-
-      position:absolute;
-
-      top:110px;
-
-      left:50%;
-
-      transform:translateX(-50%);
-
-      width:180px;
-
-      background:#fff;
-
-      border-radius:10px;
-
-      box-shadow:0 5px 20px rgba(0,0,0,.15);
-
+  /* 6. Pure CSS Vertical 3-Dot Icon Integration */
+  .header-area .menu-trigger {
+    display: block !important;
+    position: relative;
+    width: 20px !important;
+    height: 25px !important;
+    background: transparent !important;
+    margin-right: 5px !important;
+    cursor: pointer;
+    flex-shrink: 0;
   }
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li{
-
-      width:100%;
-
+  /* Remove default lines if they are span-based tags */
+  .header-area .menu-trigger span {
+    display: none !important;
   }
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a{
-
-      font-size:13px;
-
-      color:#333 !important;
-
-      line-height:42px !important;
-
-      height:42px !important;
-
-      text-align:left;
-
-      padding-left:15px !important;
-
+  /* Constructing the three modern circular dots */
+  .header-area .menu-trigger::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    /* Double box-shadow produces the middle and lower dots perfectly aligned */
+    box-shadow: 0 7px 0 #ffffff, 0 14px 0 #ffffff;
   }
 
+  /* Disable sub-menu drop behaviors on ultra-small mobile views */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu,
+  .header-area .main-nav .nav li.submenu:hover ul, 
+  .header-area .main-nav .nav li.submenu:focus ul {
+    display: none !important;
+  }
+  
+  .header-area .main-nav .nav li.has-sub:after {
+    display: none !important;
+  }
 }
 
 /* 
