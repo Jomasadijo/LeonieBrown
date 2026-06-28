@@ -578,9 +578,6 @@ header
    MOBILE HEADER (INLINE AMAZON STYLE)
 ========================================== */
 
-/* ==========================================
-   MOBILE HEADER (INLINE & ORDERED)
-========================================== */
 
 @media (max-width: 767px) {
   /* 1. Base Header Container */
@@ -676,73 +673,70 @@ header
     color: #ffffff !important; 
   }
 
-  /* 6. Pages Pointer Style Customization */
-  .header-area .main-nav .nav li.has-sub a {
-    padding-right: 2px !important;
+/* ==========================================
+     6 & 7. REMOVED OLD LINES & INJECTED 3 DOTS
+     ========================================== */
+  .header-area .main-nav .nav li.has-sub {
+    order: 99 !important; /* Locks Pages block at the absolute end of the row */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 14px !important; /* Created safe-zone spacing to house the dots */
   }
 
-  /* Appends a small arrow pointing cleanly toward the 3 dots */
+  /* Appends a small arrow pointing cleanly toward your new dots */
   .header-area .main-nav .nav li.has-sub a::after {
     content: " ►" !important;
     color: #e5c158 !important;
     font-size: 7px !important;
     display: inline-block;
-    margin-left: 3px;
+    margin-left: 2px;
     vertical-align: middle;
   }
 
-  /* Hide default theme down arrows */
+  /* REPLACED DEFAULT THEME ARROW: Now generates the 3 vertical white dots */
   .header-area .main-nav .nav li.has-sub:after {
-    display: none !important;
-  }
-
-  /* 7. Pure CSS Vertical 3-Dot Dropdown Trigger */
-  .header-area .menu-trigger {
-    display: block !important;
-    position: relative;
-    width: 16px !important;
-    height: 25px !important;
-    background: transparent !important;
-    margin-right: 5px !important;
-    margin-left: 2px !important;
-    cursor: pointer;
-    flex-shrink: 0;
-    order: 100 !important; /* Places the 3-dot column immediately after Pages */
-  }
-
-  .header-area .menu-trigger span {
-    display: none !important;
-  }
-
-  /* Rendering the 3 crisp white alignment dots */
-  .header-area .menu-trigger::before {
     content: '' !important;
+    display: block !important;
     position: absolute;
-    right: 6px;
-    top: 4px;
+    right: 0px; /* Pinned precisely to the right of the Pages link element */
+    top: 50%;
+    transform: translateY(-9px); /* Centers the vertical matrix column cleanly */
     width: 4px;
     height: 4px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Top dot color */
     border-radius: 50%;
-    box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff;
+    /* Layered box-shadow structures produce the middle and bottom alignment points */
+    box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
+    cursor: pointer;
   }
 
-  /* 8. Positioned Dropdown Sub-Menu Overlay */
+  /* Completely clear out and hide the old theme menu-trigger container */
+  .header-area .menu-trigger,
+  .header-area .menu-trigger span,
+  .header-area .menu-trigger span::before,
+  .header-area .menu-trigger span::after {
+    display: none !important;
+  }
+
+  /* ==========================================
+     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
+     ========================================== */
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     display: none;
     position: absolute;
     top: 25px;
-    right: -20px; /* Aligns dropdown seamlessly underneath the 3-dot area */
+    right: -10px; /* Positions the white drop-down directly below the new dots */
     left: auto;
-    min-width: 130px;
-    background: #ffffff; /* Clean off-white background matching your image reference */
+    min-width: 135px;
+    background: #ffffff; /* Dropdown container background color */
     border-radius: 6px;
     z-index: 9999;
     padding: 6px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  /* Toggles display view when classes match interaction hooks */
+  /* Reveals the sub-menu options seamlessly on click/hover states */
   .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
   .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
     display: block !important;
@@ -750,12 +744,12 @@ header
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li {
     width: 100% !important;
-    order: unset !important; /* Removes flex order mechanics inside list drops */
+    order: unset !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    color: #2d3436 !important; /* Premium dark text contrast */
-    font-size: 11px !important; 
+    color: #2d3436 !important; /* Solid high-contrast text layout */
+    font-size: 11px !important;
     font-weight: 500 !important;
     padding: 8px 14px !important;
     display: block;
@@ -768,15 +762,15 @@ header
     border-bottom: none !important;
   }
 
+  /* Clears out inherited arrow elements within the nested listing drop selections */
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
-    display: none !important; /* Excludes text arrow markers inside option rows */
+    display: none !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
     color: #0b3d2e !important;
     background: #f7f9f8 !important;
   }
-}
 
 
 /* 
