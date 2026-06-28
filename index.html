@@ -878,28 +878,29 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const trigger = document.getElementById("mobile-submenu-trigger");
+        const mobileTrigger = document.getElementById("mobile-submenu-trigger");
         
-        if (trigger) {
-            trigger.addEventListener("click", function (event) {
-                // Determine if the user is tapping a deep link options item
-                const isSubLink = event.target.closest(".sub-menu a");
+        if (mobileTrigger) {
+            mobileTrigger.addEventListener("click", function (event) {
+                // Check if the user is clicking an active deep page target link inside the dropdown
+                const targetLink = event.target.closest(".sub-menu a");
                 
-                if (!isSubLink) {
-                    // Prevent default anchor processing behavior
+                if (!targetLink) {
+                    // Prevent any broken hash re-routes when opening the menu
                     event.preventDefault();
-                    // Stop event from closing instantly
                     event.stopPropagation(); 
-                    // Toggle visibility open state wrapper class
+                    
+                    // Toggle the view state layout class
                     this.classList.toggle("open");
                 }
+                // If it IS a sub-link, it executes normally and loads the clicked page!
             });
         }
 
-        // Close the sub-menu if a user taps anywhere else on the screen
+        // Instantly closes the menu if a user clicks anywhere else on the open screen area
         document.addEventListener("click", function (event) {
-            if (trigger && !trigger.contains(event.target)) {
-                trigger.classList.remove("open");
+            if (mobileTrigger && !mobileTrigger.contains(event.target)) {
+                mobileTrigger.classList.remove("open");
             }
         });
     });
