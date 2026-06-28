@@ -577,42 +577,33 @@ header
 /* ==========================================
    MOBILE HEADER (INLINE AMAZON STYLE)
 ========================================== */
-
-/* ==========================================
-   MOBILE HEADER (OVERLAPPING DROPDOWN)
-========================================== */
-
 @media (max-width: 767px) {
-  /* 1. Base Header Layer - Set to visible so nothing gets clipped */
+  /* 1. Base Header Container */
   .header-area {
-    background-color: #0b3d2e !important; /* Premium dark green banner */
+    background-color: #0b3d2e !important; /* Signature deep green banner */
     padding: 0px 10px !important;
     height: 70px !important; 
     box-shadow: none;
     text-align: left;
     display: flex;
     align-items: center;
-    position: relative !important;
-    overflow: visible !important; /* CRITICAL: Allows dropdown to pop out of the banner */
-    z-index: 99999 !important; /* Forces banner to stay above page content */
   }
 
   .header-area .container {
     padding: 0px;
     width: 100%;
-    overflow: visible !important; /* Prevents container boxing */
   }
 
-  /* 2. Main Navigation Flex Layout */
+  /* 2. Main Navigation Flex Framework */
   .header-area .main-nav {
+    overflow: visible;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    overflow: visible !important; /* Keeps parent paths open */
   }
 
-  /* 3. Logo Placement (Far Left) */
+  /* 3. Logo Alignment (Far Left) */
   .header-area .logo {
     margin-left: 5px !important;
     flex-shrink: 0;
@@ -622,18 +613,17 @@ header
     color: #ffffff !important;
   }
 
-  /* 4. Inline Mobile Navigation Row (Center) */
+  /* 4. Center Navigation Link Row */
   .header-area .main-nav .nav {
     display: flex !important; 
     flex-direction: row !important;
     float: none !important;
     width: auto !important;
-    margin: 0 0 0 auto !important; /* Spreads navigation text fields cleanly */
+    margin: 0 0 0 auto !important; /* Pushes the entire block cleanly to the right */
     padding: 0 !important;
-    gap: 8px !important; 
+    gap: 8px !important; /* Keeps links grouped comfortably close */
     list-style: none;
     align-items: center;
-    overflow: visible !important;
   }
 
   .header-area .main-nav .nav li:first-child {
@@ -644,34 +634,56 @@ header
     margin-top: 0px !important;
   }
 
+  /* 5. Compressing Nav Items & Layout Re-ordering */
   .header-area .main-nav .nav li {
     width: auto !important;
     background: transparent !important;
     border-bottom: none !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
-    order: 1; 
-    overflow: visible !important;
+    order: 1; /* Sets default sorting priority */
   }
 
-  /* 5. Pages Link & Dot Matrix Layout */
+  /* CRITICAL: Force the "Pages" item to position itself last in the inline row */
   .header-area .main-nav .nav li.has-sub {
-    order: 99 !important; /* Pin "Pages" text layout element right before the dots */
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-right: 20px !important; /* Enlarged trigger padding for fingertips */
-    cursor: pointer !important;
-    overflow: visible !important;
+    order: 99 !important; /* Forces layout rendering engine to stack it last */
+    position: relative;
+    display: flex;
+    align-items: center;
   }
 
-  .header-area .main-nav .nav li.has-sub a.pages-link {
-    padding-right: 2px !important;
-    pointer-events: none; /* Passes click down directly to the list container element */
+  .header-area .main-nav .nav li a {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 4px 2px !important; 
+    border: none !important;
+    background: transparent !important;
+    color: #e5c158 !important; /* Premium gold accent link text */
+    font-size: 10px !important; 
+    font-weight: 600 !important;
+    text-transform: capitalize;
+    white-space: nowrap; 
   }
 
-  /* Custom functional arrow marker placement */
-  .header-area .main-nav .nav li.has-sub a.pages-link::after {
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+    background: transparent !important;
+    color: #ffffff !important; 
+  }
+
+/* ==========================================
+     6 & 7. REMOVED OLD LINES & INJECTED 3 DOTS
+     ========================================== */
+  .header-area .main-nav .nav li.has-sub {
+    order: 99 !important; /* Locks Pages block at the absolute end of the row */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 14px !important; /* Created safe-zone spacing to house the dots */
+  }
+
+  /* Appends a small arrow pointing cleanly toward your new dots */
+  .header-area .main-nav .nav li.has-sub a::after {
     content: " ►" !important;
     color: #e5c158 !important;
     font-size: 7px !important;
@@ -680,72 +692,75 @@ header
     vertical-align: middle;
   }
 
-  /* Renders the vertical 3 dots using CSS shadows */
-  .header-area .main-nav .nav li.has-sub::after {
+  /* REPLACED DEFAULT THEME ARROW: Now generates the 3 vertical white dots */
+  .header-area .main-nav .nav li.has-sub:after {
     content: '' !important;
     display: block !important;
     position: absolute;
-    right: 4px; 
+    right: 0px; /* Pinned precisely to the right of the Pages link element */
     top: 50%;
-    transform: translateY(-8px); 
+    transform: translateY(-9px); /* Centers the vertical matrix column cleanly */
     width: 4px;
     height: 4px;
-    background-color: #ffffff; 
+    background-color: #ffffff; /* Top dot color */
     border-radius: 50%;
+    /* Layered box-shadow structures produce the middle and bottom alignment points */
     box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
+    cursor: pointer;
   }
 
-  .header-area .menu-trigger {
-    display: none !important; /* Hides default burger wrapper frameworks completely */
+  /* Completely clear out and hide the old theme menu-trigger container */
+  .header-area .menu-trigger,
+  .header-area .menu-trigger span,
+  .header-area .menu-trigger span::before,
+  .header-area .menu-trigger span::after {
+    display: none !important;
   }
 
   /* ==========================================
-     6. THE OVERLAPPING DROPDOWN FLOATER
+     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
      ========================================== */
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    display: none !important; /* Completely hidden when inactive */
-    position: absolute !important;
-    top: 35px; /* Positions menu perfectly clear of the banner line */
-    right: -5px; 
-    left: auto !important;
-    min-width: 140px;
-    background: #ffffff !important; /* White panel matching reference images */
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: -10px; /* Positions the white drop-down directly below the new dots */
+    left: auto;
+    min-width: 135px;
+    background: #ffffff; /* Dropdown container background color */
     border-radius: 6px;
+    z-index: 9999;
     padding: 6px 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important; /* Heavy shadow for premium layering feel */
-    z-index: 999999 !important; /* Highest rank index forces alignment over all image assets */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  /* The active modifier toggle class applied by JavaScript */
-  .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
-    display: block !important; /* Pops open seamlessly over header borders */
+  /* Reveals the sub-menu options seamlessly on click/hover states */
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+    display: block !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li {
     width: 100% !important;
-    display: block !important;
     order: unset !important;
   }
 
-  /* Sub-menu Direct Active Link Items */
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    color: #2d3436 !important; /* Dark text for clean readability */
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    padding: 10px 16px !important;
-    display: block !important;
+    color: #2d3436 !important; /* Solid high-contrast text layout */
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    display: block;
     background: transparent !important;
-    text-align: left !important;
-    pointer-events: auto !important; /* Fully functional links */
+    text-align: left;
     border-bottom: 1px solid #f2f2f2 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
-    border-bottom: none !important; /* Removes separator line from last choice option */
+    border-bottom: none !important;
   }
 
+  /* Clears out inherited arrow elements within the nested listing drop selections */
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
     display: none !important;
   }
@@ -754,7 +769,6 @@ header
     color: #0b3d2e !important;
     background: #f7f9f8 !important;
   }
-}
 
 
 /* 
