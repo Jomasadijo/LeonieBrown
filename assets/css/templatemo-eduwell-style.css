@@ -673,28 +673,171 @@ header
   }
 }
 
-@media (min-width: 767px) {
-  .header-area .main-nav .nav {
-    display: flex !important;
+/* ===========================================
+   MOBILE HEADER - HORIZONTAL SCROLL NAVIGATION
+=========================================== */
+
+@media (max-width: 767px) {
+
+  .header-area {
+    background: #0b3d2e !important;
+    height: 90px;
+    padding: 0;
+    overflow: hidden;
   }
-}
 
-.background-header {
-    background: #0b3d2e !important; /* solid luxury green */
-}
+  .background-header {
+    height: 80px !important;
+  }
 
-.header-area .main-nav .nav li a {
+  .header-area .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .header-area .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  /* Logo */
+
+  .header-area .main-nav .logo {
+    margin: 0;
+    line-height: 90px;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+
+  .header-area .main-nav .logo img {
+    max-height: 60px;
+    width: auto;
+  }
+
+  /* Hide hamburger completely */
+
+  .header-area .menu-trigger {
+    display: none !important;
+  }
+
+  /* Navigation */
+
+  .header-area .main-nav .nav {
+
+    display: flex !important;
+
+    position: relative;
+
+    width: auto;
+
+    margin: 0;
+
+    margin-left: 15px;
+
+    padding: 0;
+
+    background: transparent;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+
+  }
+
+  .header-area .main-nav .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-area .main-nav .nav li {
+
+    display: inline-flex;
+
+    flex: 0 0 auto;
+
+    width: auto;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 0 10px !important;
+
+  }
+
+  .header-area .main-nav .nav li:first-child {
+    border: none;
+  }
+
+  .header-area .main-nav .nav li a {
+
+    display: block;
+
+    background: transparent !important;
+
     color: #d4af37 !important;
-    transition: 0.3s ease;
-}
 
-.header-area .main-nav .nav li a:hover {
-    color: #ffd700 !important;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-}
+    font-size: 14px;
 
-.header-area .main-nav .nav li a.active {
+    font-weight: 600;
+
+    line-height: 90px !important;
+
+    height: 90px !important;
+
+    padding: 0 !important;
+
+    white-space: nowrap;
+
+    border: none !important;
+
+  }
+
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+
     color: #ffd700 !important;
+
+  }
+
+  /* Dropdown */
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+
+    position: absolute;
+
+    top: 90px;
+
+    left: 0;
+
+    background: #ffffff;
+
+    width: 220px;
+
+    display: none;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+
+    border-radius: 10px;
+
+  }
+
+  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+
+    display: block;
+
+  }
+
 }
 
 /* 
@@ -1983,6 +2126,61 @@ img {
 /* ================================
    MOBILE VIEW
 ================================ */
+@media (max-width:991px){
+
+.header-area{
+    height:80px;
+}
+
+.header-area .menu-trigger{
+    display:none !important;
+}
+
+.header-area .main-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header-area .main-nav .logo{
+    margin-right:15px;
+}
+
+.header-area .main-nav .nav{
+    display:flex !important;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    width:100%;
+    background:transparent;
+    box-shadow:none;
+    position:relative;
+    padding:0 10px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+}
+
+.header-area .main-nav .nav::-webkit-scrollbar{
+    display:none;
+}
+
+.header-area .main-nav .nav li{
+    flex:0 0 auto;
+    margin:0 8px;
+}
+
+.header-area .main-nav .nav li a{
+    display:block;
+    color:#f7c948;
+    font-size:13px;
+    font-weight:600;
+    padding:28px 5px;
+    white-space:nowrap;
+}
+
+}
+
 
 @media (max-width: 767px) {
 
