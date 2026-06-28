@@ -578,13 +578,10 @@ header
    MOBILE HEADER (INLINE AMAZON STYLE)
 ========================================== */
 
-
 @media (max-width: 767px) {
-  /* ==========================================
-     MOBILE HEADER (INLINE & ORDERED)
-  ========================================== */
+  /* 1. Base Header Container */
   .header-area {
-    background-color: #0b3d2e !important; 
+    background-color: #0b3d2e !important; /* Signature deep green banner */
     padding: 0px 10px !important;
     height: 70px !important; 
     box-shadow: none;
@@ -598,6 +595,7 @@ header
     width: 100%;
   }
 
+  /* 2. Main Navigation Flex Framework */
   .header-area .main-nav {
     overflow: visible;
     display: flex;
@@ -606,6 +604,7 @@ header
     width: 100%;
   }
 
+  /* 3. Logo Alignment (Far Left) */
   .header-area .logo {
     margin-left: 5px !important;
     flex-shrink: 0;
@@ -615,14 +614,15 @@ header
     color: #ffffff !important;
   }
 
+  /* 4. Center Navigation Link Row */
   .header-area .main-nav .nav {
     display: flex !important; 
     flex-direction: row !important;
     float: none !important;
     width: auto !important;
-    margin: 0 0 0 auto !important; 
+    margin: 0 0 0 auto !important; /* Pushes the entire block cleanly to the right */
     padding: 0 !important;
-    gap: 8px !important; 
+    gap: 8px !important; /* Keeps links grouped comfortably close */
     list-style: none;
     align-items: center;
   }
@@ -635,34 +635,56 @@ header
     margin-top: 0px !important;
   }
 
+  /* 5. Compressing Nav Items & Layout Re-ordering */
   .header-area .main-nav .nav li {
     width: auto !important;
     background: transparent !important;
     border-bottom: none !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
-    order: 1; 
+    order: 1; /* Sets default sorting priority */
   }
 
-  /* ==========================================
-     PAGES & 3 VERTICAL DOTS INTERACTION
-  ========================================== */
+  /* CRITICAL: Force the "Pages" item to position itself last in the inline row */
   .header-area .main-nav .nav li.has-sub {
-    order: 99 !important; 
+    order: 99 !important; /* Forces layout rendering engine to stack it last */
     position: relative;
     display: flex;
     align-items: center;
-    padding-right: 18px !important; /* Touch hit box spacing for the 3 dots */
-    cursor: pointer;
   }
 
-  .header-area .main-nav .nav li.has-sub a.pages-link {
-    padding-right: 2px !important;
-    pointer-events: none; /* Passes tap actions directly down to the parent li handler */
+  .header-area .main-nav .nav li a {
+    height: auto !important;
+    line-height: normal !important;
+    padding: 4px 2px !important; 
+    border: none !important;
+    background: transparent !important;
+    color: #e5c158 !important; /* Premium gold accent link text */
+    font-size: 10px !important; 
+    font-weight: 600 !important;
+    text-transform: capitalize;
+    white-space: nowrap; 
   }
 
-  /* Tiny arrow indicator */
-  .header-area .main-nav .nav li.has-sub a.pages-link::after {
+  .header-area .main-nav .nav li a:hover,
+  .header-area .main-nav .nav li a.active {
+    background: transparent !important;
+    color: #ffffff !important; 
+  }
+
+/* ==========================================
+     6 & 7. REMOVED OLD LINES & INJECTED 3 DOTS
+     ========================================== */
+  .header-area .main-nav .nav li.has-sub {
+    order: 99 !important; /* Locks Pages block at the absolute end of the row */
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 14px !important; /* Created safe-zone spacing to house the dots */
+  }
+
+  /* Appends a small arrow pointing cleanly toward your new dots */
+  .header-area .main-nav .nav li.has-sub a::after {
     content: " ►" !important;
     color: #e5c158 !important;
     font-size: 7px !important;
@@ -671,44 +693,51 @@ header
     vertical-align: middle;
   }
 
-  /* Generating the 3 vertical white dots */
-  .header-area .main-nav .nav li.has-sub::after {
+  /* REPLACED DEFAULT THEME ARROW: Now generates the 3 vertical white dots */
+  .header-area .main-nav .nav li.has-sub:after {
     content: '' !important;
     display: block !important;
     position: absolute;
-    right: 2px; 
+    right: 0px; /* Pinned precisely to the right of the Pages link element */
     top: 50%;
-    transform: translateY(-8px); 
+    transform: translateY(-9px); /* Centers the vertical matrix column cleanly */
     width: 4px;
     height: 4px;
-    background-color: #ffffff; 
+    background-color: #ffffff; /* Top dot color */
     border-radius: 50%;
+    /* Layered box-shadow structures produce the middle and bottom alignment points */
     box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
+    cursor: pointer;
   }
 
-  .header-area .menu-trigger {
+  /* Completely clear out and hide the old theme menu-trigger container */
+  .header-area .menu-trigger,
+  .header-area .menu-trigger span,
+  .header-area .menu-trigger span::before,
+  .header-area .menu-trigger span::after {
     display: none !important;
   }
 
   /* ==========================================
-     DROPDOWN ACTION MODIFIERS
-  ========================================== */
+     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
+     ========================================== */
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    display: none !important; /* Kept closed until toggled active */
+    display: none;
     position: absolute;
-    top: 30px;
-    right: -5px; 
+    top: 25px;
+    right: -10px; /* Positions the white drop-down directly below the new dots */
     left: auto;
-    min-width: 140px;
-    background: #ffffff !important; 
+    min-width: 135px;
+    background: #ffffff; /* Dropdown container background color */
     border-radius: 6px;
-    z-index: 99999;
+    z-index: 9999;
     padding: 6px 0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  /* Dynamic CSS trigger state enabled by Javascript */
-  .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
+  /* Reveals the sub-menu options seamlessly on click/hover states */
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
     display: block !important;
   }
 
@@ -718,14 +747,13 @@ header
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    color: #2d3436 !important; 
+    color: #2d3436 !important; /* Solid high-contrast text layout */
     font-size: 11px !important;
-    font-weight: 600 !important;
-    padding: 10px 14px !important;
-    display: block !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    display: block;
     background: transparent !important;
     text-align: left;
-    pointer-events: auto !important; /* Re-enables standard navigation click tracking */
     border-bottom: 1px solid #f2f2f2 !important;
   }
 
@@ -733,6 +761,7 @@ header
     border-bottom: none !important;
   }
 
+  /* Clears out inherited arrow elements within the nested listing drop selections */
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
     display: none !important;
   }
@@ -741,7 +770,6 @@ header
     color: #0b3d2e !important;
     background: #f7f9f8 !important;
   }
-}
 
 
 /* 
