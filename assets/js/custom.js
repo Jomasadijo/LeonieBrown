@@ -172,10 +172,25 @@
 	if($('.menu-trigger').length){
 		$(".menu-trigger").on('click', function() {	
 			$(this).toggleClass('active');
-			$('.header-area .nav').slideToggle(200);
+			$('.mobile-options').slideToggle(200);
 		});
 	}
 
+/* Mobile Pages Dropdown */
+
+$('.header-area .main-nav .nav li.has-sub > a').on('click', function(e){
+
+    if($(window).width() <= 767){
+
+        e.preventDefault();
+
+        $(this).parent().toggleClass('open');
+
+        $(this).siblings('.sub-menu').stop(true, true).slideToggle(200);
+
+    }
+
+});
 
 	// Menu elevator animation
 	$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
