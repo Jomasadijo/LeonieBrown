@@ -578,12 +578,16 @@ header
    MOBILE HEADER (INLINE AMAZON STYLE)
 ========================================== */
 
+/* ==========================================
+   MOBILE HEADER (INLINE & ORDERED)
+========================================== */
+
 @media (max-width: 767px) {
-  /* 1. Base Header Adjustments */
+  /* 1. Base Header Container */
   .header-area {
-    background-color: #0b3d2e !important; /* Forces the signature deep green banner */
+    background-color: #0b3d2e !important; /* Signature deep green banner */
     padding: 0px 10px !important;
-    height: 70px !important; /* Sleeker height to maximize vertical workspace */
+    height: 70px !important; 
     box-shadow: none;
     text-align: left;
     display: flex;
@@ -595,7 +599,7 @@ header
     width: 100%;
   }
 
-  /* 2. Main Navigation Wrapper Setup */
+  /* 2. Main Navigation Flex Framework */
   .header-area .main-nav {
     overflow: visible;
     display: flex;
@@ -604,7 +608,7 @@ header
     width: 100%;
   }
 
-  /* 3. Logo Placement Fixed Left */
+  /* 3. Logo Alignment (Far Left) */
   .header-area .logo {
     margin-left: 5px !important;
     flex-shrink: 0;
@@ -614,20 +618,19 @@ header
     color: #ffffff !important;
   }
 
-  /* 4. Inline Mobile Navigation Bar (The Desktop Simulation) */
+  /* 4. Center Navigation Link Row */
   .header-area .main-nav .nav {
-    display: flex !important; /* Force items to sit side-by-side */
+    display: flex !important; 
     flex-direction: row !important;
     float: none !important;
     width: auto !important;
-    margin: 0 auto !important; /* Perfectly centers links between logo and 3 dots */
+    margin: 0 0 0 auto !important; /* Pushes the entire block cleanly to the right */
     padding: 0 !important;
-    gap: 6px !important; /* Keeps links tightly grouped together */
+    gap: 8px !important; /* Keeps links grouped comfortably close */
     list-style: none;
     align-items: center;
   }
 
-  /* Clear out top borders from old vertical code */
   .header-area .main-nav .nav li:first-child {
     border-top: none !important;
   }
@@ -636,109 +639,143 @@ header
     margin-top: 0px !important;
   }
 
-  /* 5. Compressing Individual Nav Links */
+  /* 5. Compressing Nav Items & Layout Re-ordering */
   .header-area .main-nav .nav li {
     width: auto !important;
-    background: transparent !important; /* No white block overlays */
+    background: transparent !important;
     border-bottom: none !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
+    order: 1; /* Sets default sorting priority */
+  }
+
+  /* CRITICAL: Force the "Pages" item to position itself last in the inline row */
+  .header-area .main-nav .nav li.has-sub {
+    order: 99 !important; /* Forces layout rendering engine to stack it last */
+    position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .header-area .main-nav .nav li a {
     height: auto !important;
     line-height: normal !important;
-    padding: 4px 2px !important; /* Compressed tight clickable area */
+    padding: 4px 2px !important; 
     border: none !important;
     background: transparent !important;
-    color: #e5c158 !important; /* Sleek premium gold tint matching your branding */
-    font-size: 10px !important; /* Scaled text down perfectly to guarantee fitment */
+    color: #e5c158 !important; /* Premium gold accent link text */
+    font-size: 10px !important; 
     font-weight: 600 !important;
     text-transform: capitalize;
-    white-space: nowrap; /* Prevents long labels from splitting across lines */
+    white-space: nowrap; 
   }
 
   .header-area .main-nav .nav li a:hover,
   .header-area .main-nav .nav li a.active {
     background: transparent !important;
-    color: #ffffff !important; /* Switches cleanly to crisp white on interactions */
+    color: #ffffff !important; 
   }
 
-  /* 6. Pure CSS Vertical 3-Dot Icon Integration */
+  /* 6. Pages Pointer Style Customization */
+  .header-area .main-nav .nav li.has-sub a {
+    padding-right: 2px !important;
+  }
+
+  /* Appends a small arrow pointing cleanly toward the 3 dots */
+  .header-area .main-nav .nav li.has-sub a::after {
+    content: " ►" !important;
+    color: #e5c158 !important;
+    font-size: 7px !important;
+    display: inline-block;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+
+  /* Hide default theme down arrows */
+  .header-area .main-nav .nav li.has-sub:after {
+    display: none !important;
+  }
+
+  /* 7. Pure CSS Vertical 3-Dot Dropdown Trigger */
   .header-area .menu-trigger {
     display: block !important;
     position: relative;
-    width: 20px !important;
+    width: 16px !important;
     height: 25px !important;
     background: transparent !important;
     margin-right: 5px !important;
+    margin-left: 2px !important;
     cursor: pointer;
     flex-shrink: 0;
+    order: 100 !important; /* Places the 3-dot column immediately after Pages */
   }
 
-  /* Remove default lines if they are span-based tags */
   .header-area .menu-trigger span {
     display: none !important;
   }
 
-  /* Constructing the three modern circular dots */
+  /* Rendering the 3 crisp white alignment dots */
   .header-area .menu-trigger::before {
-    content: '';
+    content: '' !important;
     position: absolute;
-    right: 8px;
-    top: 3px;
+    right: 6px;
+    top: 4px;
     width: 4px;
     height: 4px;
     background-color: #ffffff;
     border-radius: 50%;
-    /* Double box-shadow produces the middle and lower dots perfectly aligned */
-    box-shadow: 0 7px 0 #ffffff, 0 14px 0 #ffffff;
+    box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff;
   }
 
-/* Mobile Pages dropdown */
+  /* 8. Positioned Dropdown Sub-Menu Overlay */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: -20px; /* Aligns dropdown seamlessly underneath the 3-dot area */
+    left: auto;
+    min-width: 130px;
+    background: #ffffff; /* Clean off-white background matching your image reference */
+    border-radius: 6px;
+    z-index: 9999;
+    padding: 6px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
 
-.header-area .main-nav .nav li.has-sub {
-    position: relative;
-}
+  /* Toggles display view when classes match interaction hooks */
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+    display: block !important;
+  }
 
-.header-area .main-nav .nav li.has-sub:after{
-    content: "▼";
-    color:#ffffff;
-    font-size:8px;
-    margin-left:2px;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    width: 100% !important;
+    order: unset !important; /* Removes flex order mechanics inside list drops */
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu{
-    display:none;
-    position:absolute;
-    top:24px;
-    left:0;
-    min-width:140px;
-    background:#0b3d2e;
-    border-radius:6px;
-    z-index:9999;
-    padding:5px 0;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    color: #2d3436 !important; /* Premium dark text contrast */
+    font-size: 11px !important; 
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    display: block;
+    background: transparent !important;
+    text-align: left;
+    border-bottom: 1px solid #f2f2f2 !important;
+  }
 
-.header-area .main-nav .nav li.has-sub.open ul.sub-menu{
-    display:block;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
+    border-bottom: none !important;
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li{
-    width:100%;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
+    display: none !important; /* Excludes text arrow markers inside option rows */
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a{
-    color:#ffffff !important;
-    font-size:10px !important;
-    padding:6px 10px !important;
-    display:block;
-    background:transparent !important;
-}
-
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover{
-    color:#ffd700 !important;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    color: #0b3d2e !important;
+    background: #f7f9f8 !important;
+  }
 }
 
 
