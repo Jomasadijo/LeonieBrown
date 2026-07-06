@@ -172,14 +172,15 @@
        MODIFIED MOBILE SLIDETOGGLE & CONSTANT DOTS
        ========================================== */
        
-    // Keeps the 3 vertical dots fixed while the sliding panel collapses smoothly
-    if($('.menu-trigger').length){
-        $(".menu-trigger").on('click', function() { 
-            $(this).toggleClass('active');
-            // Slides the nav item container down/up smoothly without shifting the 3-dot alignment position
-            $('.header-area .nav').stop(true, true).slideToggle(200);
-        });
-    }
+// Keeps the 3 vertical dots fixed while the sliding panel collapses smoothly
+if ($('.menu-trigger').length) {
+    $(".menu-trigger").off('click').on('click', function(e) { 
+        e.preventDefault();
+        $(this).toggleClass('active');
+        // Slides ONLY the text items container up and down in the middle space
+        $('.header-area .nav').stop(true, true).slideToggle(200);
+    });
+}
 
     // Handles inner sub-menu item expansions (About Us, Services, Contact)
     $('.header-area .main-nav .nav li.has-sub').on('click', function(e){

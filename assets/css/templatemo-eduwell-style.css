@@ -672,103 +672,109 @@ header
   }
 
 /* ==========================================
-     6 & 7. REMOVED OLD LINES & INJECTED 3 DOTS
-     ========================================== */
-  .header-area .main-nav .nav li.has-sub {
-    order: 99 !important; /* Locks Pages block at the absolute end of the row */
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-right: 14px !important; /* Created safe-zone spacing to house the dots */
-  }
+   6 & 7. PERMANENT 3-DOTS ON RIGHT EDGE
+   ========================================== */
+/* Set the parent relative to reserve a permanent area on the far right edge */
+.header-area .main-nav {
+  position: relative !important;
+  padding-right: 25px !important; /* Forces a safe zone gap on the right for the dots */
+  overflow: visible !important;
+}
 
-  /* Appends a small arrow pointing cleanly toward your new dots */
-  .header-area .main-nav .nav li.has-sub a::after {
-    content: " ►" !important;
-    color: #e5c158 !important;
-    font-size: 7px !important;
-    display: inline-block;
-    margin-left: 2px;
-    vertical-align: middle;
-  }
+.header-area .main-nav .nav li.has-sub {
+  order: 99 !important; /* Guarantees Pages sits at the end of the sliding row text */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-  /* REPLACED DEFAULT THEME ARROW: Now generates the 3 vertical white dots */
-  .header-area .main-nav .nav li.has-sub:after {
-    content: '' !important;
-    display: block !important;
-    position: absolute;
-    right: 0px; /* Pinned precisely to the right of the Pages link element */
-    top: 50%;
-    transform: translateY(-9px); /* Centers the vertical matrix column cleanly */
-    width: 4px;
-    height: 4px;
-    background-color: #ffffff; /* Top dot color */
-    border-radius: 50%;
-    /* Layered box-shadow structures produce the middle and bottom alignment points */
-    box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
-    cursor: pointer;
-  }
+/* Appends a small arrow pointing cleanly toward the right edge edge */
+.header-area .main-nav .nav li.has-sub a::after {
+  content: " ►" !important;
+  color: #e5c158 !important;
+  font-size: 7px !important;
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: middle;
+}
 
-  /* Completely clear out and hide the old theme menu-trigger container */
-  .header-area .menu-trigger,
-  .header-area .menu-trigger span,
-  .header-area .menu-trigger span::before,
-  .header-area .menu-trigger span::after {
-    display: none !important;
-  }
+/* GENERATES THE PERMANENT 3 VERTICAL WHITE DOTS ON THE FAR RIGHT EDGE CONTAINER */
+.header-area .main-nav::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  right: 10px; /* Locked precisely to the far right side margin line */
+  top: 50%;
+  transform: translateY(-9px); /* Perfect vertical centering inside the green banner */
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff; /* Top Dot */
+  border-radius: 50%;
+  /* Creates the middle and bottom alignment dots */
+  box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
+  cursor: pointer;
+  z-index: 99999 !important;
+}
 
-  /* ==========================================
-     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
-     ========================================== */
-  .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    display: none;
-    position: absolute;
-    top: 25px;
-    right: -10px; /* Positions the white drop-down directly below the new dots */
-    left: auto;
-    min-width: 135px;
-    background: #ffffff; /* Dropdown container background color */
-    border-radius: 6px;
-    z-index: 9999;
-    padding: 6px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
+/* Remove default theme tracking trigger blocks completely */
+.header-area .menu-trigger,
+.header-area .menu-trigger span,
+.header-area .menu-trigger span::before,
+.header-area .menu-trigger span::after {
+  display: none !important;
+}
 
-  /* Reveals the sub-menu options seamlessly on click/hover states */
-  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
-  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
-    display: block !important;
-  }
+/* ==========================================
+   8. POSITIONED DROPDOWN SUB-MENU OVERLAY
+   ========================================== */
+.header-area .main-nav .nav li.has-sub ul.sub-menu {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: -20px; /* Positions the white drop-down panel neatly below the dots area */
+  left: auto;
+  min-width: 135px;
+  background: #ffffff; /* Dropdown panel background color */
+  border-radius: 6px;
+  z-index: 999999 !important; /* Elevated stack value overlaps banner content safely */
+  padding: 6px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
-    width: 100% !important;
-    order: unset !important;
-  }
+/* Reveals the sub-menu options seamlessly on open state classes */
+.header-area .main-nav .nav li.has-sub.open ul.sub-menu,
+.header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+  display: block !important;
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    color: #2d3436 !important; /* Solid high-contrast text layout */
-    font-size: 11px !important;
-    font-weight: 500 !important;
-    padding: 8px 14px !important;
-    display: block;
-    background: transparent !important;
-    text-align: left;
-    border-bottom: 1px solid #f2f2f2 !important;
-  }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li {
+  width: 100% !important;
+  order: unset !important;
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
-    border-bottom: none !important;
-  }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+  color: #2d3436 !important; /* Solid high-contrast text layout color */
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  padding: 8px 14px !important;
+  display: block;
+  background: transparent !important;
+  text-align: left;
+  border-bottom: 1px solid #f2f2f2 !important;
+}
 
-  /* Clears out inherited arrow elements within the nested listing drop selections */
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
-    display: none !important;
-  }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
+  border-bottom: none !important;
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
-    color: #0b3d2e !important;
-    background: #f7f9f8 !important;
-  }
+/* Clears out inherited arrow elements inside sub list links */
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
+  display: none !important;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+  color: #0b3d2e !important;
+  background: #f7f9f8 !important;
 }
 
 /* 
