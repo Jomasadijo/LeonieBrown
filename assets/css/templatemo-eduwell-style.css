@@ -774,7 +774,7 @@ header
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
     color: #0b3d2e !important;
-    background: #f7f9f8 !important;
+    background:#0b3d2e!important;
   }
 }
 
