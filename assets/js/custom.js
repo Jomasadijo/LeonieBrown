@@ -169,32 +169,42 @@
     
 
     /* ==========================================
-       MODIFIED MOBILE SLIDETOGGLE & CONSTANT DOTS
+        MODIFIED MOBILE SLIDETOGGLE & CONSTANT DOTS
        ========================================== */
        
-// Keeps the 3 vertical dots fixed while the sliding panel collapses smoothly
-if ($('.menu-trigger').length) {
-    $(".menu-trigger").off('click').on('click', function(e) { 
-        e.preventDefault();
-        $(this).toggleClass('active');
-        // Slides ONLY the text items container up and down in the middle space
-        $('.header-area .nav').stop(true, true).slideToggle(200);
-    });
-}
-
-    // Handles inner sub-menu item expansions (About Us, Services, Contact)
-    $('.header-area .main-nav .nav li.has-sub').on('click', function(e){
-        if($(window).width() <= 767){
-            // Check if the click target is a deep link option selection
-            const isSubLink = $(e.target).closest('.sub-menu a').length;
-            
-            if(!isSubLink) {
-                e.preventDefault();
-                e.stopPropagation();
-                $(this).toggleClass('open');
-                $(this).find('.sub-menu').stop(true, true).slideToggle(200);
+    $(document).ready(function() {
+        $('.header-area .main-nav').off('click').on('click', function(e) {
+            if ($(window).width() <= 767) {
+                var hasSubLi = $('.header-area .main-nav .nav li.has-sub');
+                var subMenu = hasSubLi.find('.sub-menu');
+                
+                // 1. If user clicks a direct sub-menu link choice option, do nothing and let it redirect!
+                if ($(e.target).closest('.sub-menu a').length) {
+                    return; 
+                }
+                
+                // 2. Identify if they hit the "Pages" text link element OR clicked the constant 3 dots right edge zone
+                var clickedPagesText = $(e.target).closest('.pages-link').length;
+                var clickedFarRightDots = (e.pageX > ($(window).width() - 50)); // Target 50px zone from the screen edge
+                
+                if (clickedPagesText || clickedFarRightDots) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle visibility classes smoothly
+                    hasSubLi.toggleClass('open');
+                    subMenu.stop(true, true).slideToggle(200);
+                }
             }
-        }
+        });
+
+        // Hide dropdown menu seamlessly if user clicks out somewhere else on the window page context
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.has-sub').length && $(window).width() <= 767) {
+                $('.header-area .main-nav .nav li.has-sub').removeClass('open');
+                $('.header-area .main-nav .nav li.has-sub .sub-menu').slideUp(150);
+            }
+        });
     });
 
     // Menu elevator animation

@@ -672,23 +672,21 @@ header
   }
 
 /* ==========================================
-   6 & 7. PERMANENT 3-DOTS ON RIGHT EDGE
+   6 & 7. PERMANENT 3-DOTS ON RIGHT EDGE (ACTIVE)
    ========================================== */
-/* Set the parent relative to reserve a permanent area on the far right edge */
 .header-area .main-nav {
   position: relative !important;
-  padding-right: 25px !important; /* Forces a safe zone gap on the right for the dots */
+  padding-right: 35px !important; /* Slightly increased to give fingertips space */
   overflow: visible !important;
 }
 
 .header-area .main-nav .nav li.has-sub {
-  order: 99 !important; /* Guarantees Pages sits at the end of the sliding row text */
+  order: 99 !important; 
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/* Appends a small arrow pointing cleanly toward the right edge edge */
 .header-area .main-nav .nav li.has-sub a::after {
   content: " ►" !important;
   color: #e5c158 !important;
@@ -698,54 +696,48 @@ header
   vertical-align: middle;
 }
 
-/* GENERATES THE PERMANENT 3 VERTICAL WHITE DOTS ON THE FAR RIGHT EDGE CONTAINER */
+/* GENERATES THE ACTIVE 3 VERTICAL WHITE DOTS ON THE FAR RIGHT EDGE */
 .header-area .main-nav::after {
   content: '' !important;
   display: block !important;
   position: absolute;
-  right: 10px; /* Locked precisely to the far right side margin line */
+  right: 12px; 
   top: 50%;
-  transform: translateY(-9px); /* Perfect vertical centering inside the green banner */
+  transform: translateY(-9px); 
   width: 4px;
   height: 4px;
-  background-color: #ffffff; /* Top Dot */
+  background-color: #ffffff; 
   border-radius: 50%;
-  /* Creates the middle and bottom alignment dots */
   box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
-  cursor: pointer;
+  cursor: pointer !important;
   z-index: 99999 !important;
+  pointer-events: auto !important; /* CRITICAL: Allows the dots to receive touch/click events */
 }
 
-/* Remove default theme tracking trigger blocks completely */
-.header-area .menu-trigger,
-.header-area .menu-trigger span,
-.header-area .menu-trigger span::before,
-.header-area .menu-trigger span::after {
+.header-area .menu-trigger {
   display: none !important;
 }
 
 /* ==========================================
-     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
-     ========================================== */
-  .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    display: none;
-    position: absolute;
-    top: 25px;
-    right: 0px; /* Positions the white drop-down directly below the new dots */
-    left: auto;
-    min-width: 135px;
-    background: #0b3d2e; /* Dropdown container background color */
-    border-radius: 6px;
-    z-index: 9999;
-    padding: 6px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
+   8. POSITIONED DROPDOWN SUB-MENU OVERLAY
+   ========================================== */
+.header-area .main-nav .nav li.has-sub ul.sub-menu {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: -25px; /* Shifted to align directly underneath the constant dots */
+  left: auto;
+  min-width: 140px;
+  background: #ffffff; 
+  border-radius: 6px;
+  z-index: 999999 !important; 
+  padding: 6px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-  /* Reveals the sub-menu options seamlessly on click/hover states */
-  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
-  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
-    display: block !important;
-  }
+.header-area .main-nav .nav li.has-sub.open ul.sub-menu {
+  display: block !important;
+}
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li {
     width: 100% !important;
