@@ -734,7 +734,7 @@ header
     right: -10px; /* Positions the white drop-down directly below the new dots */
     left: auto;
     min-width: 135px;
-    background: #ffffff; /* Dropdown container background color */
+    background: #0b3d2e; /* Dropdown container background color */
     border-radius: 6px;
     z-index: 9999;
     padding: 6px 0;
@@ -776,7 +776,7 @@ header
     color: #0b3d2e !important;
     background: #f7f9f8 !important;
   }
-
+}
 
 /* 
 ---------------------------------------------
