@@ -731,7 +731,7 @@ header
     display: none;
     position: absolute;
     top: 25px;
-    right: -10px; /* Positions the white drop-down directly below the new dots */
+    right: 0px; /* Positions the white drop-down directly below the new dots */
     left: auto;
     min-width: 135px;
     background: #0b3d2e; /* Dropdown container background color */
