@@ -725,56 +725,57 @@ header
 }
 
 /* ==========================================
-   8. POSITIONED DROPDOWN SUB-MENU OVERLAY
-   ========================================== */
-.header-area .main-nav .nav li.has-sub ul.sub-menu {
-  display: none;
-  position: absolute;
-  top: 25px;
-  right: -20px; /* Positions the white drop-down panel neatly below the dots area */
-  left: auto;
-  min-width: 135px;
-  background: #ffffff; /* Dropdown panel background color */
-  border-radius: 6px;
-  z-index: 999999 !important; /* Elevated stack value overlaps banner content safely */
-  padding: 6px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+     8. POSITIONED DROPDOWN SUB-MENU OVERLAY
+     ========================================== */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: -10px; /* Positions the white drop-down directly below the new dots */
+    left: auto;
+    min-width: 135px;
+    background: #ffffff; /* Dropdown container background color */
+    border-radius: 6px;
+    z-index: 9999;
+    padding: 6px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-/* Reveals the sub-menu options seamlessly on open state classes */
-.header-area .main-nav .nav li.has-sub.open ul.sub-menu,
-.header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
-  display: block !important;
-}
+  /* Reveals the sub-menu options seamlessly on click/hover states */
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub:hover ul.sub-menu {
+    display: block !important;
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li {
-  width: 100% !important;
-  order: unset !important;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    width: 100% !important;
+    order: unset !important;
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-  color: #2d3436 !important; /* Solid high-contrast text layout color */
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  padding: 8px 14px !important;
-  display: block;
-  background: transparent !important;
-  text-align: left;
-  border-bottom: 1px solid #f2f2f2 !important;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    color: #2d3436 !important; /* Solid high-contrast text layout */
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    padding: 8px 14px !important;
+    display: block;
+    background: transparent !important;
+    text-align: left;
+    border-bottom: 1px solid #f2f2f2 !important;
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
-  border-bottom: none !important;
-}
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
+    border-bottom: none !important;
+  }
 
-/* Clears out inherited arrow elements inside sub list links */
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
-  display: none !important;
-}
+  /* Clears out inherited arrow elements within the nested listing drop selections */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
+    display: none !important;
+  }
 
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
-  color: #0b3d2e !important;
-  background: #f7f9f8 !important;
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    color: #0b3d2e !important;
+    background: #f7f9f8 !important;
+  }
 }
 
 /* 
