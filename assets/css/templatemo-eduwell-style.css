@@ -594,6 +594,7 @@ header
     width: 100%;
   }
 
+
   /* 2. Main Navigation Flex Framework */
   .header-area .main-nav {
     overflow: visible;
@@ -692,6 +693,11 @@ header
     color: #e5c158;
     font-size: 8px;
     margin-left: 2px;
+}
+
+/* Disable desktop arrow on phones */
+.header-area .main-nav .nav li.has-sub:after{
+    display:none !important;
 }
 
 /* GENERATES THE ACTIVE 3 VERTICAL WHITE DOTS ON THE FAR RIGHT EDGE */
