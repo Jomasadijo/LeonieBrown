@@ -715,7 +715,7 @@ header
   box-shadow: 0 6px 0 #ffffff, 0 12px 0 #ffffff !important;
   cursor: pointer !important;
   z-index: 99999 !important;
-  pointer-events: auto !important; /* CRITICAL: Allows the dots to receive touch/click events */
+  pointer-events: none !important; /* CRITICAL: Allows the dots to receive touch/click events */
 }
 
 .header-area .menu-trigger {
