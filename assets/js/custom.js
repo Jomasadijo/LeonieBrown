@@ -290,43 +290,68 @@
     });
 
     
+const dropdownOpener = $('.main-nav ul.nav .has-sub > a');
 
-    const dropdownOpener = $('.main-nav ul.nav .has-sub > a');
+// ======================================
+// Desktop + Mobile Pages Dropdown
+// ======================================
+if (dropdownOpener.length) {
 
-    // Open/Close Submenus
-    if (dropdownOpener.length) {
-        dropdownOpener.each(function () {
-            var _this = $(this);
+    dropdownOpener.each(function () {
 
-            _this.on('tap click', function (e) {
-                var thisItemParent = _this.parent('li'),
-                    thisItemParentSiblingsWithDrop = thisItemParent.siblings('.has-sub');
+        var _this = $(this);
 
-                if (thisItemParent.hasClass('has-sub')) {
-                    var submenu = thisItemParent.find('> ul.sub-menu');
+        _this.on('click tap', function (e) {
 
-                    if (submenu.is(':visible')) {
-                        submenu.slideUp(450, 'easeInOutQuad');
-                        thisItemParent.removeClass('is-open-sub');
-                    } else {
-                        thisItemParent.addClass('is-open-sub');
+            var parent = _this.parent('li');
+            var submenu = parent.find('> ul.sub-menu');
 
-                        if (thisItemParentSiblingsWithDrop.length === 0) {
-                            thisItemParent.find('.sub-menu').slideUp(400, 'easeInOutQuad', function () {
-                                submenu.slideDown(250, 'easeInOutQuad');
-                            });
-                        } else {
-                            thisItemParent.siblings().removeClass('is-open-sub').find('.sub-menu').slideUp(250, 'easeInOutQuad', function () {
-                                submenu.slideDown(250, 'easeInOutQuad');
-                            });
-                        }
-                    }
-                }
+            // ---------- MOBILE ----------
+            if ($(window).width() <= 767) {
 
                 e.preventDefault();
-            });
+
+                // Close any other open dropdown
+                $('.main-nav .nav li.has-sub')
+                    .not(parent)
+                    .removeClass('open')
+                    .find('> ul.sub-menu')
+                    .slideUp(200);
+
+                // Toggle current dropdown
+                parent.toggleClass('open');
+                submenu.stop(true, true).slideToggle(200);
+
+                return false;
+            }
+
+            // ---------- DESKTOP ----------
+            var siblings = parent.siblings('.has-sub');
+
+            if (submenu.is(':visible')) {
+
+                submenu.slideUp(250, 'easeInOutQuad');
+                parent.removeClass('is-open-sub');
+
+            } else {
+
+                parent.addClass('is-open-sub');
+
+                siblings
+                    .removeClass('is-open-sub')
+                    .find('> ul.sub-menu')
+                    .slideUp(250, 'easeInOutQuad');
+
+                submenu.slideDown(250, 'easeInOutQuad');
+            }
+
+            e.preventDefault();
+
         });
-    }
+
+    });
+
+}
 
 
     function visible(partial) {

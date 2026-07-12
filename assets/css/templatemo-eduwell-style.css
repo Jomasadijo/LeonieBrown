@@ -575,7 +575,7 @@ header
 }
 
 /* ==========================================
-   MOBILE HEADER (INLINE AMAZON STYLE)
+   MOBILE HEADER
 ========================================== */
 @media (max-width: 767px) {
   /* 1. Base Header Container */
@@ -687,13 +687,11 @@ header
   align-items: center;
 }
 
-.header-area .main-nav .nav li.has-sub a::after {
-  content: " ►" !important;
-  color: #e5c158 !important;
-  font-size: 7px !important;
-  display: inline-block;
-  margin-left: 2px;
-  vertical-align: middle;
+.header-area .main-nav .nav li.has-sub > a::after {
+    content: " ▼";
+    color: #e5c158;
+    font-size: 8px;
+    margin-left: 2px;
 }
 
 /* GENERATES THE ACTIVE 3 VERTICAL WHITE DOTS ON THE FAR RIGHT EDGE */
@@ -719,55 +717,64 @@ header
 }
 
 /* ==========================================
-   8. POSITIONED DROPDOWN SUB-MENU OVERLAY
-   ========================================== */
+   8. MOBILE PAGES DROPDOWN
+   (Matches Desktop Behaviour)
+========================================== */
+
+.header-area .main-nav .nav li.has-sub {
+    position: relative;
+}
+
+.header-area .main-nav .nav li.has-sub > a {
+    cursor: pointer;
+}
+
+/* Keep the desktop dropdown styling */
 .header-area .main-nav .nav li.has-sub ul.sub-menu {
-  display: none;
-  position: absolute;
-  top: 25px;
-  right: -25px; /* Shifted to align directly underneath the constant dots */
-  left: auto;
-  min-width: 140px;
-  background: #ffffff; 
-  border-radius: 6px;
-  z-index: 999999 !important; 
-  padding: 6px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    margin-top: 8px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    z-index: 99999;
+    overflow: hidden;
 }
 
+/* Show when JS adds .open */
 .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
-  display: block !important;
+    display: block;
 }
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
-    width: 100% !important;
-    order: unset !important;
-  }
+/* Submenu items */
+.header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    color: #2d3436 !important; /* Solid high-contrast text layout */
-    font-size: 11px !important;
-    font-weight: 500 !important;
-    padding: 8px 14px !important;
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a {
     display: block;
-    background: transparent !important;
+    padding: 10px 15px !important;
+    font-size: 12px !important;
+    color: #222 !important;
+    background: #ffffff !important;
     text-align: left;
-    border-bottom: 1px solid #f2f2f2 !important;
-  }
+    line-height: 1.4 !important;
+    white-space: nowrap;
+}
 
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li:last-child a {
-    border-bottom: none !important;
-  }
-
-  /* Clears out inherited arrow elements within the nested listing drop selections */
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a::after {
-    display: none !important;
-  }
-
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    background: #f5f5f5 !important;
     color: #0b3d2e !important;
-    background:#0b3d2e!important;
-  }
+}
+
 }
 
 /* 
