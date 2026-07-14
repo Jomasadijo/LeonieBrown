@@ -2068,114 +2068,63 @@ img {
 }
 
 /* ================================
-   MOBILE VIEW & NAVIGATION
+   MOBILE VIEW
 ================================ */
-@media (max-width: 991px) {
+@media (max-width:991px){
 
-  .header-area {
-    height: 80px;
-  }
+.header-area{
+    height:80px;
+}
 
-  .header-area .menu-trigger {
-    display: none !important;
-  }
+.header-area .menu-trigger{
+    display:none !important;
+}
 
-  .header-area .main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
+.header-area .main-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-  .header-area .main-nav .logo {
-    margin-right: 15px;
-  }
+.header-area .main-nav .logo{
+    margin-right:15px;
+}
 
-  /* Prevent navigation box clipping absolute menus */
-  .header-area .main-nav .nav {
-    display: flex !important;
-    flex-wrap: nowrap;
-    overflow-x: visible; /* Changed to visible to let absolute dropdown hang down */
-    overflow-y: visible; 
-    white-space: nowrap;
-    width: auto;
-    background: transparent;
-    box-shadow: none;
-    position: relative;
-    padding: 0 10px;
-  }
+.header-area .main-nav .nav{
+    display:flex !important;
+    flex-wrap:nowrap;
+    overflow-x:visible;
+    overflow-y:visible;
+    white-space:nowrap;
+    width:100%;
+    background:transparent;
+    box-shadow:none;
+    position:relative;
+    padding:0 10px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+}
 
-  .header-area .main-nav .nav li {
-    flex: 0 0 auto;
-    margin: 0 8px;
-    position: relative; /* Set parent position reference context */
-  }
+.header-area .main-nav .nav::-webkit-scrollbar{
+    display:none;
+}
 
-  .header-area .main-nav .nav li a {
-    display: block;
-    color: #f7c948;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 28px 5px;
-    white-space: nowrap;
-  }
+.header-area .main-nav .nav li{
+    flex:0 0 auto;
+    margin:0 8px;
+}
 
-  /* --- MOB DROPDOWN (Pages Menu) STYLE CORRECTION --- */
-  .header-area .main-nav .nav li.has-sub {
-    position: relative;
-  }
-
-  .header-area .main-nav .nav li.has-sub ul.sub-menu {
-    display: none; 
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff !important;
-    min-width: 160px;
-    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
-    border-radius: 8px;
-    z-index: 99999;
-    padding: 10px 0 !important;
-    margin: 0;
-    text-align: left;
-    border: 1px solid rgba(0,0,0,0.05);
-  }
-
-  /* Submenu links inside the white popup container */
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-  }
-
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
-    display: block;
-    width: 100%;
-    color: #2a2a2a !important;
-    font-size: 14px !important;
-    font-weight: 500;
-    line-height: 1.5;
-    padding: 10px 20px !important;
-    white-space: nowrap;
-    text-align: left;
-    transition: all 0.2s ease;
-  }
-
-  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
-    background-color: #f8f9fa;
-    color: #0b3d2e !important;
-  }
-
-  /* Show style triggers classes */
-  .header-area .main-nav .nav li.has-sub.is-open-sub ul.sub-menu,
-  .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
-    display: block !important;
-  }
+.header-area .main-nav .nav li a{
+    display:block;
+    color:#f7c948;
+    font-size:13px;
+    font-weight:600;
+    padding:28px 5px;
+    white-space:nowrap;
+}
 
 }
+
 
 @media (max-width: 767px) {
 
@@ -2224,7 +2173,8 @@ img {
     margin-bottom: 30px;
   }
 
-  /* Header Overrides */
+  /* Header */
+
   .header-area {
     min-height: 80px;
   }
@@ -2240,17 +2190,98 @@ img {
   }
 
   .header-area .main-nav .nav li {
-    width: auto; /* Changed from 100% to keep horizontally scrollable list spacing */
+    width: 100%;
     text-align: center;
   }
 
   .header-area .main-nav .nav li a {
-    font-size: 13px; /* Ensure uniform text rendering */
-    line-height: inherit;
-    padding: 28px 5px;
+    font-size: 17px;
+    line-height: 50px;
+    padding: 0;
   }
 
+/* Mobile Pages Dropdown */
+
+.header-area .main-nav .nav li.has-sub{
+    position:relative;
+}
+
+.header-area .main-nav .nav li.has-sub > a{
+    cursor:pointer;
+}
+
+.header-area .main-nav .nav li.has-sub > a::after{
+    content:" ▼";
+    font-size:9px;
+    color:#f7c948;
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    width:170px;
+
+    background:#ffffff;
+
+    border-radius:8px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+
+    padding:6px 0;
+
+    z-index:99999;
+
+}
+
+.header-area .main-nav .nav li.has-sub.open ul.sub-menu{
+
+    display:block;
+
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li{
+
+    width:100%;
+
+    margin:0;
+
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a{
+
+    display:block;
+
+    color:#222 !important;
+
+    background:#fff !important;
+
+    text-align:left;
+
+    font-size:13px !important;
+
+    line-height:20px !important;
+
+    padding:10px 15px !important;
+
+}
+
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover{
+
+    background:#0b3d2e !important;
+
+    color:#fff !important;
+
+}
+
   /* Banner */
+
   .main-banner {
     padding-top: 110px;
     text-align: center;
@@ -2282,6 +2313,7 @@ img {
   }
 
   /* General Sections */
+
   section {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -2302,6 +2334,7 @@ img {
   }
 
   /* Long Text */
+
   h1,
   h2,
   h3,
@@ -2321,6 +2354,7 @@ img {
   }
 
   /* Buttons */
+
   .main-button,
   .border-button {
     width: 100%;
@@ -2336,6 +2370,7 @@ img {
   }
 
   /* Courses */
+
   section.our-courses ul.nacc li,
   section.our-team ul.nacc li {
     padding: 0;
@@ -2361,6 +2396,7 @@ img {
   }
 
   /* Statistics */
+
   .count-area-content {
     text-align: center;
     margin-bottom: 25px;
@@ -2377,6 +2413,7 @@ img {
   }
 
   /* Team */
+
   section.our-team .naccs .menu {
     display: flex;
     justify-content: center;
@@ -2398,6 +2435,7 @@ img {
   }
 
   /* Contact */
+
   #contact input,
   #contact textarea,
   #contact select {
@@ -2410,6 +2448,7 @@ img {
   }
 
   /* Footer */
+
   footer {
     text-align: center;
   }
@@ -2593,18 +2632,24 @@ img {
   }
 
   section.more-info .count-area-content .count-digit {
+
     width: 75px;
     height: 75px;
     line-height: 75px;
+
     font-size: 26px;
+
     margin: 0 auto -35px;
+
     transform: none;
     display: block;
   }
 
   section.more-info .count-area-content .count-title {
+
     width: 100%;
     padding: 50px 20px 25px;
+
     font-size: 18px;
     line-height: 1.5;
   }
@@ -2635,13 +2680,16 @@ img {
   }
 
   section.more-info .count-area-content .count-digit {
+
     width: 65px;
     height: 65px;
     line-height: 65px;
+
     font-size: 22px;
   }
 
   section.more-info .count-area-content .count-title {
+
     font-size: 16px;
     padding: 45px 15px 20px;
   }
