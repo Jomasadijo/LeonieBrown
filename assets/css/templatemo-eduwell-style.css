@@ -1890,3 +1890,760 @@ section.more-info .count-area-content .count-title {
     transform: translateX(5px);
 }
 
+
+/* 
+---------------------------------------------
+Responsive
+--------------------------------------------- 
+*/
+
+/* General mobile improvements */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================================
+   LARGE SCREENS
+================================ */
+
+@media (max-width: 1330px) {
+  .services .owl-nav .owl-next,
+  .our-courses .owl-nav .owl-next {
+    right: -30px;
+  }
+
+  .services .owl-nav .owl-prev,
+  .our-courses .owl-nav .owl-prev {
+    left: -25px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .main-banner .right-image {
+    margin-left: 40px;
+  }
+
+  .main-banner .header-text h2 {
+    font-size: 56px;
+  }
+
+  .header-area {
+    background: #0b3d2e !important;
+    background-color: #0b3d2e !important;
+    background-image: none !important;
+  }
+
+  .services .owl-nav .owl-next,
+  .our-courses .owl-nav .owl-next {
+    right: -40px;
+  }
+
+  .services .owl-nav .owl-prev,
+  .our-courses .owl-nav .owl-prev {
+    left: -40px;
+  }
+}
+
+@media (max-width: 1085px) {
+  .services .owl-nav .owl-next,
+  .our-courses .owl-nav .owl-next {
+    right: -20px;
+  }
+
+  .services .owl-nav .owl-prev,
+  .our-courses .owl-nav .owl-prev {
+    left: -20px;
+  }
+}
+
+@media (max-width: 1005px) {
+
+  .services .owl-nav .owl-next,
+  .services .owl-nav .owl-prev,
+  .our-courses .owl-nav .owl-next,
+  .our-courses .owl-nav .owl-prev {
+    display: none;
+  }
+
+}
+
+/* ================================
+   TABLET VIEW
+================================ */
+
+@media (max-width: 992px) {
+
+  .main-banner {
+    padding-top: 120px;
+  }
+
+  .main-banner .header-text {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .main-banner .header-text h2 {
+    font-size: 46px;
+    line-height: 1.2;
+  }
+
+  .main-banner .right-image {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  section.our-courses ul.nacc {
+    margin-left: 0 !important;
+  }
+
+  section.simple-cta {
+    margin-top: 0;
+  }
+
+  section.simple-cta .left-image {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  section.contact-us .contact-info {
+    margin-top: 20px;
+  }
+
+  section.contact-us #contact {
+    margin-left: 0;
+  }
+
+  section.contact-us #contact button {
+    float: none;
+    width: 100%;
+  }
+
+  section.get-info .left-image {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  section.get-info .info-item {
+    margin-top: 40px;
+  }
+
+  section.our-office #video {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  section.featured-product .left-info .info-item,
+  section.featured-product .right-info .info-item {
+    text-align: center;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+  }
+
+  section.featured-product .left-info .info-item .icon {
+    right: 50%;
+    transform: translateX(40px);
+  }
+
+  section.featured-product .right-info .info-item .icon {
+    left: 50%;
+    transform: translateX(-40px);
+  }
+
+  section.featured-product .product-image {
+    margin: 40px auto;
+    text-align: center;
+  }
+
+}
+
+/* ================================
+   MOBILE VIEW & NAVIGATION
+================================ */
+@media (max-width: 991px) {
+
+  .header-area {
+    height: 80px;
+  }
+
+  .header-area .menu-trigger {
+    display: none !important;
+  }
+
+  .header-area .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .header-area .main-nav .logo {
+    margin-right: 15px;
+  }
+
+  /* Prevent navigation box clipping absolute menus */
+  .header-area .main-nav .nav {
+    display: flex !important;
+    flex-wrap: nowrap;
+    overflow-x: visible; /* Changed to visible to let absolute dropdown hang down */
+    overflow-y: visible; 
+    white-space: nowrap;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+    padding: 0 10px;
+  }
+
+  .header-area .main-nav .nav li {
+    flex: 0 0 auto;
+    margin: 0 8px;
+    position: relative; /* Set parent position reference context */
+  }
+
+  .header-area .main-nav .nav li a {
+    display: block;
+    color: #f7c948;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 28px 5px;
+    white-space: nowrap;
+  }
+
+  /* --- MOB DROPDOWN (Pages Menu) STYLE CORRECTION --- */
+  .header-area .main-nav .nav li.has-sub {
+    position: relative;
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff !important;
+    min-width: 160px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 99999;
+    padding: 10px 0 !important;
+    margin: 0;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Submenu links inside the white popup container */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    display: block;
+    width: 100%;
+    color: #2a2a2a !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 10px 20px !important;
+    white-space: nowrap;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    background-color: #f8f9fa;
+    color: #0b3d2e !important;
+  }
+
+  /* Show style triggers classes */
+  .header-area .main-nav .nav li.has-sub.is-open-sub ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
+    display: block !important;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container,
+  .container-fluid {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .col-6,
+  .col-sm-6,
+  .col-md-6,
+  .col-lg-6,
+  .col-xl-6,
+  .col-lg-4,
+  .col-md-4,
+  .col-sm-4,
+  .col-lg-3,
+  .col-md-3,
+  .col-sm-3 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
+
+  /* Header Overrides */
+  .header-area {
+    min-height: 80px;
+  }
+
+  .header-area .logo img {
+    max-height: 55px;
+    width: auto;
+  }
+
+  .header-area .main-nav .nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .header-area .main-nav .nav li {
+    width: auto; /* Changed from 100% to keep horizontally scrollable list spacing */
+    text-align: center;
+  }
+
+  .header-area .main-nav .nav li a {
+    font-size: 13px; /* Ensure uniform text rendering */
+    line-height: inherit;
+    padding: 28px 5px;
+  }
+
+  /* Banner */
+  .main-banner {
+    padding-top: 110px;
+    text-align: center;
+  }
+
+  .main-banner .header-text {
+    margin-bottom: 35px;
+  }
+
+  .main-banner .header-text h2 {
+    font-size: 34px;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .main-banner .header-text p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .main-banner .right-image {
+    margin-top: 30px;
+  }
+
+  .main-banner .right-image img {
+    width: 100%;
+    max-width: 340px;
+    margin: auto;
+  }
+
+  /* General Sections */
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .section-heading p {
+    font-size: 16px;
+  }
+
+  /* Long Text */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  /* Buttons */
+  .main-button,
+  .border-button {
+    width: 100%;
+  }
+
+  .main-button a,
+  .border-button a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  /* Courses */
+  section.our-courses ul.nacc li,
+  section.our-team ul.nacc li {
+    padding: 0;
+  }
+
+  section.our-courses ul.nacc li .left-image,
+  section.our-team ul.nacc li .right-image {
+    position: relative;
+    margin: 0;
+    transform: none;
+  }
+
+  section.our-courses ul.nacc li .left-image img,
+  section.our-team ul.nacc li .right-image img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  section.our-courses ul.nacc li .right-content,
+  section.our-team ul.nacc li .left-content {
+    margin: 0;
+    padding: 25px 20px;
+  }
+
+  /* Statistics */
+  .count-area-content {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .count-digit {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  .count-title {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Team */
+  section.our-team .naccs .menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  section.our-team .naccs .menu div {
+    width: 18%;
+    margin: 5px;
+  }
+
+  section.our-team .naccs .menu div.active img {
+    border: 3px solid #0b3d2e;
+  }
+
+  section.our-team .naccs .menu div h4,
+  section.our-team .naccs .menu div span {
+    display: none;
+  }
+
+  /* Contact */
+  #contact input,
+  #contact textarea,
+  #contact select {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  #contact button {
+    width: 100%;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+  }
+
+}
+
+/* ================================
+   SMALL PHONES
+================================ */
+
+@media (max-width: 480px) {
+
+  .container,
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .header-area .logo img {
+    max-height: 45px;
+  }
+
+  .main-banner {
+    padding-top: 100px;
+  }
+
+  .main-banner .header-text h2 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .main-banner .header-text p {
+    font-size: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .count-digit {
+    font-size: 28px;
+  }
+
+  .count-title {
+    font-size: 14px;
+  }
+
+  .main-button a,
+  .border-button a {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+}
+
+/* ==================================================
+   FEATURED PRODUCT - MOBILE RESPONSIVE
+================================================== */
+
+@media (max-width: 767px) {
+
+  section.featured-product:before,
+  section.featured-product:after {
+    display: none;
+  }
+
+  section.featured-product {
+    overflow: hidden;
+  }
+
+  section.featured-product .product-image {
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  section.featured-product .product-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: auto;
+  }
+
+  section.featured-product .left-info,
+  section.featured-product .right-info {
+    margin-top: 0;
+  }
+
+  section.featured-product .info-item {
+    text-align: center !important;
+    padding: 70px 20px 25px;
+    margin-bottom: 35px;
+  }
+
+  section.featured-product .last-info {
+    margin-bottom: 35px;
+  }
+
+  section.featured-product .left-info .info-item .icon,
+  section.featured-product .right-info .info-item .icon {
+    left: 50%;
+    right: auto;
+    top: -35px;
+    transform: translateX(-50%);
+  }
+
+  section.featured-product .info-item .icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+
+  section.featured-product .info-item .icon img {
+    max-width: 55%;
+  }
+
+  section.featured-product .info-item h4 {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  section.featured-product .info-item p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* ==================================================
+   MORE INFO / CONTACT PAGE - MOBILE RESPONSIVE
+================================================== */
+
+@media (max-width: 767px) {
+
+  section.more-info .section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  section.more-info .section-heading h2 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  section.more-info p {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  section.more-info ul {
+    padding-left: 0;
+  }
+
+  section.more-info ul li {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+
+  section.more-info .count-area-content {
+    margin: 25px auto;
+    text-align: center;
+  }
+
+  section.more-info .count-area-content .count-digit {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 26px;
+    margin: 0 auto -35px;
+    transform: none;
+    display: block;
+  }
+
+  section.more-info .count-area-content .count-title {
+    width: 100%;
+    padding: 50px 20px 25px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+}
+
+
+/* ==================================================
+   EXTRA SMALL PHONES
+================================================== */
+
+@media (max-width: 480px) {
+
+  section.featured-product .info-item {
+    padding: 65px 18px 20px;
+  }
+
+  section.featured-product .info-item h4 {
+    font-size: 20px;
+  }
+
+  section.featured-product .info-item p {
+    font-size: 14px;
+  }
+
+  section.more-info .section-heading h2 {
+    font-size: 24px;
+  }
+
+  section.more-info .count-area-content .count-digit {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 22px;
+  }
+
+  section.more-info .count-area-content .count-title {
+    font-size: 16px;
+    padding: 45px 15px 20px;
+  }
+
+}
