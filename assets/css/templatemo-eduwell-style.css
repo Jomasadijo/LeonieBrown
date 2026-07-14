@@ -2068,60 +2068,113 @@ img {
 }
 
 /* ================================
-   MOBILE VIEW
+   MOBILE VIEW (MAINTAINS YOUR ORIGINAL SWIPE SCROLL HEADER)
 ================================ */
 @media (max-width:991px){
 
-.header-area{
-    height:80px;
-}
+  .header-area {
+    height: 80px;
+  }
 
-.header-area .menu-trigger{
-    display:none !important;
-}
+  .header-area .menu-trigger {
+    display: none !important;
+  }
 
-.header-area .main-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+  .header-area .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Context parent container */
+  }
 
-.header-area .main-nav .logo{
-    margin-right:15px;
-}
+  .header-area .main-nav .logo {
+    margin-right: 15px;
+  }
 
-.header-area .main-nav .nav{
-    display:flex !important;
-    flex-wrap:nowrap;
-    overflow-x:visible;
-    overflow-y:visible;
-    white-space:nowrap;
-    width:100%;
-    background:transparent;
-    box-shadow:none;
-    position:relative;
-    padding:0 10px;
-    scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
-}
+  /* RESTORED: Your original horizontal swiping scroll area */
+  .header-area .main-nav .nav {
+    display: flex !important;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Restored back to horizontal auto scroll */
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+    padding: 0 10px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
 
-.header-area .main-nav .nav::-webkit-scrollbar{
-    display:none;
-}
+  .header-area .main-nav .nav::-webkit-scrollbar {
+    display: none;
+  }
 
-.header-area .main-nav .nav li{
-    flex:0 0 auto;
-    margin:0 8px;
-}
+  .header-area .main-nav .nav li {
+    flex: 0 0 auto;
+    margin: 0 8px;
+  }
 
-.header-area .main-nav .nav li a{
-    display:block;
-    color:#f7c948;
-    font-size:13px;
-    font-weight:600;
-    padding:28px 5px;
-    white-space:nowrap;
-}
+  .header-area .main-nav .nav li a {
+    display: block;
+    color: #f7c948;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 28px 5px;
+    white-space: nowrap;
+  }
+
+  /* --- MOB DROPDOWN (PAGES MENU) FIX ---
+     We use fixed positioning relative to viewport to avoid the scroll-container clip! */
+  .header-area .main-nav .nav li.has-sub ul.sub-menu {
+    display: none;
+    position: fixed; /* Bypasses overflow-x container blockages! */
+    top: 80px;      /* Drops directly below header height */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff !important;
+    width: 200px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 999999;
+    padding: 10px 0 !important;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a {
+    display: block;
+    width: 100%;
+    color: #2a2a2a !important;
+    font-size: 14px !important;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 12px 20px !important;
+    white-space: nowrap;
+    text-align: center;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
+    background-color: #f8f9fa;
+    color: #0b3d2e !important;
+  }
+
+  /* Open Toggle Classes rules */
+  .header-area .main-nav .nav li.has-sub.is-open-sub ul.sub-menu,
+  .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
+    display: block !important;
+  }
 
 }
 
@@ -2173,8 +2226,7 @@ img {
     margin-bottom: 30px;
   }
 
-  /* Header */
-
+  /* Header Overrides */
   .header-area {
     min-height: 80px;
   }
@@ -2190,98 +2242,17 @@ img {
   }
 
   .header-area .main-nav .nav li {
-    width: 100%;
+    width: auto; /* Restored back to dynamic width for auto horizontal scrolling list */
     text-align: center;
   }
 
   .header-area .main-nav .nav li a {
-    font-size: 17px;
-    line-height: 50px;
-    padding: 0;
+    font-size: 13px; /* Restored original typography */
+    line-height: inherit;
+    padding: 28px 5px;
   }
 
-/* Mobile Pages Dropdown */
-
-.header-area .main-nav .nav li.has-sub{
-    position:relative;
-}
-
-.header-area .main-nav .nav li.has-sub > a{
-    cursor:pointer;
-}
-
-.header-area .main-nav .nav li.has-sub > a::after{
-    content:" ▼";
-    font-size:9px;
-    color:#f7c948;
-}
-
-.header-area .main-nav .nav li.has-sub ul.sub-menu{
-
-    display:none;
-
-    position:absolute;
-
-    top:100%;
-
-    left:0;
-
-    width:170px;
-
-    background:#ffffff;
-
-    border-radius:8px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.18);
-
-    padding:6px 0;
-
-    z-index:99999;
-
-}
-
-.header-area .main-nav .nav li.has-sub.open ul.sub-menu{
-
-    display:block;
-
-}
-
-.header-area .main-nav .nav li.has-sub ul.sub-menu li{
-
-    width:100%;
-
-    margin:0;
-
-}
-
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a{
-
-    display:block;
-
-    color:#222 !important;
-
-    background:#fff !important;
-
-    text-align:left;
-
-    font-size:13px !important;
-
-    line-height:20px !important;
-
-    padding:10px 15px !important;
-
-}
-
-.header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover{
-
-    background:#0b3d2e !important;
-
-    color:#fff !important;
-
-}
-
   /* Banner */
-
   .main-banner {
     padding-top: 110px;
     text-align: center;
@@ -2313,7 +2284,6 @@ img {
   }
 
   /* General Sections */
-
   section {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -2334,7 +2304,6 @@ img {
   }
 
   /* Long Text */
-
   h1,
   h2,
   h3,
@@ -2354,7 +2323,6 @@ img {
   }
 
   /* Buttons */
-
   .main-button,
   .border-button {
     width: 100%;
@@ -2370,7 +2338,6 @@ img {
   }
 
   /* Courses */
-
   section.our-courses ul.nacc li,
   section.our-team ul.nacc li {
     padding: 0;
@@ -2396,7 +2363,6 @@ img {
   }
 
   /* Statistics */
-
   .count-area-content {
     text-align: center;
     margin-bottom: 25px;
@@ -2413,7 +2379,6 @@ img {
   }
 
   /* Team */
-
   section.our-team .naccs .menu {
     display: flex;
     justify-content: center;
@@ -2435,7 +2400,6 @@ img {
   }
 
   /* Contact */
-
   #contact input,
   #contact textarea,
   #contact select {
@@ -2448,7 +2412,6 @@ img {
   }
 
   /* Footer */
-
   footer {
     text-align: center;
   }
@@ -2632,24 +2595,18 @@ img {
   }
 
   section.more-info .count-area-content .count-digit {
-
     width: 75px;
     height: 75px;
     line-height: 75px;
-
     font-size: 26px;
-
     margin: 0 auto -35px;
-
     transform: none;
     display: block;
   }
 
   section.more-info .count-area-content .count-title {
-
     width: 100%;
     padding: 50px 20px 25px;
-
     font-size: 18px;
     line-height: 1.5;
   }
@@ -2680,16 +2637,13 @@ img {
   }
 
   section.more-info .count-area-content .count-digit {
-
     width: 65px;
     height: 65px;
     line-height: 65px;
-
     font-size: 22px;
   }
 
   section.more-info .count-area-content .count-title {
-
     font-size: 16px;
     padding: 45px 15px 20px;
   }
