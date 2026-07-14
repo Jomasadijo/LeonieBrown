@@ -2067,9 +2067,9 @@ img {
 
 }
 
-/* ================================
-   MOBILE VIEW (MAINTAINS YOUR ORIGINAL SWIPE SCROLL HEADER)
-================================ */
+/* ==================================================
+   MOBILE VIEW & SCROLLABLE HEADER PRESERVATION
+================================================== */
 @media (max-width:991px){
 
   .header-area {
@@ -2084,20 +2084,21 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Context parent container */
+    position: relative;
   }
 
   .header-area .main-nav .logo {
     margin-right: 15px;
   }
 
-  /* RESTORED: Your original horizontal swiping scroll area */
+  /* Swiping scroll menu container */
   .header-area .main-nav .nav {
     display: flex !important;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Restored back to horizontal auto scroll */
-    overflow-y: hidden;
-    white-space: nowrap;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
     width: 100%;
     background: transparent;
     box-shadow: none;
@@ -2113,7 +2114,9 @@ img {
 
   .header-area .main-nav .nav li {
     flex: 0 0 auto;
-    margin: 0 8px;
+    margin: 0 12px !important;
+    position: relative; /* Set parent position reference context */
+    display: inline-block;
   }
 
   .header-area .main-nav .nav li a {
@@ -2121,32 +2124,46 @@ img {
     color: #f7c948;
     font-size: 13px;
     font-weight: 600;
-    padding: 28px 5px;
+    padding: 28px 2px;
     white-space: nowrap;
   }
 
-  /* --- MOB DROPDOWN (PAGES MENU) FIX ---
-     We use fixed positioning relative to viewport to avoid the scroll-container clip! */
+  /* --- DOTS OVERLAP CORRECTION --- */
+  /* If dots indicators are generated via pseudo-elements, let's target and safely offset them */
+  .header-area .main-nav .nav li.has-sub {
+    padding-right: 15px !important; /* Forces spacing to the right for the dots */
+  }
+
+  /* Resets position of dots indicator to always stick perfectly relative only to its Pages parent */
+  .header-area .main-nav .nav li.has-sub::after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0; 
+  }
+
+  /* --- DROPDOWN SUBMENU POSITIONING --- */
   .header-area .main-nav .nav li.has-sub ul.sub-menu {
     display: none;
-    position: fixed; /* Bypasses overflow-x container blockages! */
-    top: 80px;      /* Drops directly below header height */
+    position: fixed; /* Keep viewport-fixed style so it ignores navigation parent clipping */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     background: #ffffff !important;
-    width: 200px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 190px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
     z-index: 999999;
-    padding: 10px 0 !important;
+    padding: 8px 0 !important;
     margin: 0;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0,0,0,0.06);
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li {
     display: block;
     width: 100%;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
     text-align: center;
   }
@@ -2158,11 +2175,11 @@ img {
     font-size: 14px !important;
     font-weight: 600;
     line-height: 1.5;
-    padding: 12px 20px !important;
+    padding: 10px 16px !important;
     white-space: nowrap;
     text-align: center;
     background: transparent;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease-in-out;
   }
 
   .header-area .main-nav .nav li.has-sub ul.sub-menu li a:hover {
@@ -2170,14 +2187,12 @@ img {
     color: #0b3d2e !important;
   }
 
-  /* Open Toggle Classes rules */
   .header-area .main-nav .nav li.has-sub.is-open-sub ul.sub-menu,
   .header-area .main-nav .nav li.has-sub.open ul.sub-menu {
     display: block !important;
   }
 
 }
-
 
 @media (max-width: 767px) {
 
@@ -2226,7 +2241,7 @@ img {
     margin-bottom: 30px;
   }
 
-  /* Header Overrides */
+  /* Header */
   .header-area {
     min-height: 80px;
   }
@@ -2242,12 +2257,12 @@ img {
   }
 
   .header-area .main-nav .nav li {
-    width: auto; /* Restored back to dynamic width for auto horizontal scrolling list */
+    width: auto; /* Dynamic auto fit to prevent line breaks on scroll menu */
     text-align: center;
   }
 
   .header-area .main-nav .nav li a {
-    font-size: 13px; /* Restored original typography */
+    font-size: 13px;
     line-height: inherit;
     padding: 28px 5px;
   }
